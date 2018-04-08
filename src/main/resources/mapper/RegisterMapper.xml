@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cn.hxg.dao.RegisterMapper" >
+    <resultMap id="BaseResultMap" type="com.cn.hxg.entity.Register" >
+            <id column="serial_number" property="serialNumber" jdbcType="INTEGER" />
+            <result column="registration_time" property="registrationTime" jdbcType="TIMESTAMP" />
+            <result column="registered_project" property="registeredProject" jdbcType="VARCHAR" />
+            <result column="doctor" property="doctor" jdbcType="VARCHAR" />
+            <result column="name" property="name" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+    serial_number,registration_time,registered_project,doctor,name
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from register
+        where serial_number = #{serialNumber,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from register
+    where serial_number = #{serialNumber,jdbcType=INTEGER}
+  </delete>
+
+  <insert id="insert" parameterType="com.cn.hxg.entity.Register">
+    <!--<selectKey resultType="java.lang.Integer" order="BEFORE" keyProperty="serialNumber">-->
+        <!--SELECT UPPER(UUID()) AS serialNumber-->
+    <!--</selectKey>-->
+    insert into register (serial_number,registration_time,registered_project,
+		doctor,name)
+    values (#{serialNumber,jdbcType=INTEGER},#{registrationTime,jdbcType=TIMESTAMP},#{registeredProject,jdbcType=VARCHAR},
+		#{doctor,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cn.hxg.entity.Register">
+        <!--<selectKey resultType="java.lang.Integer" order="BEFORE" keyProperty="serialNumber">-->
+            <!--SELECT UPPER(UUID()) AS serialNumber-->
+        <!--</selectKey>-->
+    insert into register
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="serialNumber != null" >
+          serial_number,
+      </if>
+      <if test="registrationTime != null" >
+          registration_time,
+      </if>
+      <if test="registeredProject != null" >
+          registered_project,
+      </if>
+      <if test="doctor != null" >
+          doctor,
+      </if>
+      <if test="name != null" >
+          name
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="serialNumber != null" >
+          #{serialNumber,jdbcType=INTEGER},
+      </if>
+      <if test="registrationTime != null" >
+          #{registrationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="registeredProject != null" >
+          #{registeredProject,jdbcType=VARCHAR},
+      </if>
+      <if test="doctor != null" >
+          #{doctor,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+          #{name,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.cn.hxg.entity.Register">
+    update register
+    <set>
+    <if test="record.registrationTime != null">
+        registration_time = #{record.registrationTime,jdbcType=TIMESTAMP},
+    </if>
+    <if test="record.registeredProject != null">
+        registered_project = #{record.registeredProject,jdbcType=VARCHAR},
+    </if>
+    <if test="record.doctor != null">
+        doctor = #{record.doctor,jdbcType=VARCHAR},
+    </if>
+    <if test="record.name != null">
+        name = #{record.name,jdbcType=VARCHAR}
+    </if>
+    </set>
+    where serial_number = #{record.serialNumber,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cn.hxg.entity.Register">
+    update register
+    set registration_time = #{record.registrationTime,jdbcType=TIMESTAMP},
+		registered_project = #{record.registeredProject,jdbcType=VARCHAR},
+		doctor = #{record.doctor,jdbcType=VARCHAR},
+		name = #{record.name,jdbcType=VARCHAR}
+		
+    where serial_number = #{record.serialNumber,jdbcType=INTEGER}
+  </update>
+</mapper>

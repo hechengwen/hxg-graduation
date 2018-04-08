@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cn.hxg.dao.MedicineMapper" >
+    <resultMap id="BaseResultMap" type="com.cn.hxg.entity.Medicine" >
+            <id column="drug_num" property="drugNum" jdbcType="VARCHAR" />
+            <result column="drug_name" property="drugName" jdbcType="VARCHAR" />
+            <result column="production_date" property="productionDate" jdbcType="TIMESTAMP" />
+            <result column="effective_date" property="effectiveDate" jdbcType="TIMESTAMP" />
+            <result column="production_enterprise" property="productionEnterprise" jdbcType="VARCHAR" />
+            <result column="price" property="price" jdbcType="DECIMAL" />
+            <result column="number" property="number" jdbcType="INTEGER" />
+            <result column="stock_units" property="stockUnits" jdbcType="VARCHAR" />
+            <result column="contact_person" property="contactPerson" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+    drug_num,drug_name,production_date,effective_date,production_enterprise,price,number,stock_units,contact_person
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from medicine
+        where drug_num = #{drugNum,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from medicine
+    where drug_num = #{drugNum,jdbcType=VARCHAR}
+  </delete>
+
+  <insert id="insert" parameterType="com.cn.hxg.entity.Medicine">
+    <!--<selectKey resultType="java.lang.String" order="BEFORE" keyProperty="drugNum">-->
+        <!--SELECT UPPER(UUID()) AS drugNum-->
+    <!--</selectKey>-->
+    insert into medicine (drug_num,drug_name,production_date,
+		effective_date,production_enterprise,price,
+		number,stock_units,contact_person
+		)
+    values (#{drugNum,jdbcType=VARCHAR},#{drugName,jdbcType=VARCHAR},#{productionDate,jdbcType=TIMESTAMP},
+		#{effectiveDate,jdbcType=TIMESTAMP},#{productionEnterprise,jdbcType=VARCHAR},#{price,jdbcType=DECIMAL},
+		#{number,jdbcType=INTEGER},#{stockUnits,jdbcType=VARCHAR},#{contactPerson,jdbcType=VARCHAR}
+		)
+  </insert>
+  <insert id="insertSelective" parameterType="com.cn.hxg.entity.Medicine">
+        <!--<selectKey resultType="java.lang.String" order="BEFORE" keyProperty="drugNum">-->
+            <!--SELECT UPPER(UUID()) AS drugNum-->
+        <!--</selectKey>-->
+    insert into medicine
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="drugNum != null" >
+          drug_num,
+      </if>
+      <if test="drugName != null" >
+          drug_name,
+      </if>
+      <if test="productionDate != null" >
+          production_date,
+      </if>
+      <if test="effectiveDate != null" >
+          effective_date,
+      </if>
+      <if test="productionEnterprise != null" >
+          production_enterprise,
+      </if>
+      <if test="price != null" >
+          price,
+      </if>
+      <if test="number != null" >
+          number,
+      </if>
+      <if test="stockUnits != null" >
+          stock_units,
+      </if>
+      <if test="contactPerson != null" >
+          contact_person
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="drugNum != null" >
+          #{drugNum,jdbcType=VARCHAR},
+      </if>
+      <if test="drugName != null" >
+          #{drugName,jdbcType=VARCHAR},
+      </if>
+      <if test="productionDate != null" >
+          #{productionDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="effectiveDate != null" >
+          #{effectiveDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="productionEnterprise != null" >
+          #{productionEnterprise,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+          #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="number != null" >
+          #{number,jdbcType=INTEGER},
+      </if>
+      <if test="stockUnits != null" >
+          #{stockUnits,jdbcType=VARCHAR},
+      </if>
+      <if test="contactPerson != null" >
+          #{contactPerson,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.cn.hxg.entity.Medicine">
+    update medicine
+    <set>
+    <if test="record.drugName != null">
+        drug_name = #{record.drugName,jdbcType=VARCHAR},
+    </if>
+    <if test="record.productionDate != null">
+        production_date = #{record.productionDate,jdbcType=TIMESTAMP},
+    </if>
+    <if test="record.effectiveDate != null">
+        effective_date = #{record.effectiveDate,jdbcType=TIMESTAMP},
+    </if>
+    <if test="record.productionEnterprise != null">
+        production_enterprise = #{record.productionEnterprise,jdbcType=VARCHAR},
+    </if>
+    <if test="record.price != null">
+        price = #{record.price,jdbcType=DECIMAL},
+    </if>
+    <if test="record.number != null">
+        number = #{record.number,jdbcType=INTEGER},
+    </if>
+    <if test="record.stockUnits != null">
+        stock_units = #{record.stockUnits,jdbcType=VARCHAR},
+    </if>
+    <if test="record.contactPerson != null">
+        contact_person = #{record.contactPerson,jdbcType=VARCHAR}
+    </if>
+    </set>
+    where drug_num = #{record.drugNum,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cn.hxg.entity.Medicine">
+    update medicine
+    set drug_name = #{record.drugName,jdbcType=VARCHAR},
+		production_date = #{record.productionDate,jdbcType=TIMESTAMP},
+		effective_date = #{record.effectiveDate,jdbcType=TIMESTAMP},
+		production_enterprise = #{record.productionEnterprise,jdbcType=VARCHAR},
+		price = #{record.price,jdbcType=DECIMAL},
+		number = #{record.number,jdbcType=INTEGER},
+		stock_units = #{record.stockUnits,jdbcType=VARCHAR},
+		contact_person = #{record.contactPerson,jdbcType=VARCHAR}
+		
+    where drug_num = #{record.drugNum,jdbcType=VARCHAR}
+  </update>
+</mapper>

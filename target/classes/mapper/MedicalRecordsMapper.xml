@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cn.hxg.dao.MedicalRecordsMapper" >
+    <resultMap id="BaseResultMap" type="com.cn.hxg.entity.MedicalRecords" >
+            <result column="stu_name" property="stuName" jdbcType="VARCHAR" />
+            <result column="dco_name" property="dcoName" jdbcType="VARCHAR" />
+            <result column="jzrq" property="jzrq" jdbcType="TIMESTAMP" />
+            <result column="description" property="description" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+    stu_name,dco_name,jzrq,description
+    </sql>
+
+    <!--<select id="selectByPrimaryKey" parameterType="java.lang." resultMap="BaseResultMap">-->
+        <!--select-->
+        <!--<include refid="Base_Column_List" />-->
+        <!--from medical_records-->
+        <!--where  = #{,jdbcType=}-->
+  <!--</select>-->
+  <!--<delete id="deleteByPrimaryKey" parameterType="java.lang.">-->
+    <!--delete from medical_records-->
+    <!--where  = #{,jdbcType=}-->
+  <!--</delete>-->
+
+  <!--<insert id="insert" parameterType="com.cn.hxg.entity.MedicalRecords">-->
+    <!--<selectKey resultType="java.lang." order="BEFORE" keyProperty="">-->
+        <!--SELECT UPPER(UUID()) AS -->
+    <!--</selectKey>-->
+    <!--insert into medical_records (stu_name,dco_name,jzrq,-->
+		<!--description)-->
+    <!--values (#{stuName,jdbcType=VARCHAR},#{dcoName,jdbcType=VARCHAR},#{jzrq,jdbcType=TIMESTAMP},-->
+		<!--#{description,jdbcType=VARCHAR})-->
+  <!--</insert>-->
+  <!--<insert id="insertSelective" parameterType="com.cn.hxg.entity.MedicalRecords">-->
+        <!--<selectKey resultType="java.lang." order="BEFORE" keyProperty="">-->
+            <!--SELECT UPPER(UUID()) AS -->
+        <!--</selectKey>-->
+    <!--insert into medical_records-->
+    <!--<trim prefix="(" suffix=")" suffixOverrides=",">-->
+      <!--<if test="stuName != null" >-->
+          <!--stu_name,-->
+      <!--</if>-->
+      <!--<if test="dcoName != null" >-->
+          <!--dco_name,-->
+      <!--</if>-->
+      <!--<if test="jzrq != null" >-->
+          <!--jzrq,-->
+      <!--</if>-->
+      <!--<if test="description != null" >-->
+          <!--description-->
+      <!--</if>-->
+    <!--</trim>-->
+    <!--<trim prefix="values (" suffix=")" suffixOverrides=",">-->
+      <!--<if test="stuName != null" >-->
+          <!--#{stuName,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="dcoName != null" >-->
+          <!--#{dcoName,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="jzrq != null" >-->
+          <!--#{jzrq,jdbcType=TIMESTAMP},-->
+      <!--</if>-->
+      <!--<if test="description != null" >-->
+          <!--#{description,jdbcType=VARCHAR}-->
+      <!--</if>-->
+    <!--</trim>-->
+  <!--</insert>-->
+
+  <!--<update id="updateByPrimaryKeySelective" parameterType="com.cn.hxg.entity.MedicalRecords">-->
+    <!--update medical_records-->
+    <!--<set>-->
+    <!--<if test="record.stuName != null">-->
+        <!--stu_name = #{record.stuName,jdbcType=VARCHAR},-->
+    <!--</if>-->
+    <!--<if test="record.dcoName != null">-->
+        <!--dco_name = #{record.dcoName,jdbcType=VARCHAR},-->
+    <!--</if>-->
+    <!--<if test="record.jzrq != null">-->
+        <!--jzrq = #{record.jzrq,jdbcType=TIMESTAMP},-->
+    <!--</if>-->
+    <!--<if test="record.description != null">-->
+        <!--description = #{record.description,jdbcType=VARCHAR}-->
+    <!--</if>-->
+    <!--</set>-->
+    <!--where  = #{record.,jdbcType=}-->
+  <!--</update>-->
+  <!--<update id="updateByPrimaryKey" parameterType="com.cn.hxg.entity.MedicalRecords">-->
+    <!--update medical_records-->
+    <!--set stu_name = #{record.stuName,jdbcType=VARCHAR},-->
+		<!--dco_name = #{record.dcoName,jdbcType=VARCHAR},-->
+		<!--jzrq = #{record.jzrq,jdbcType=TIMESTAMP},-->
+		<!--description = #{record.description,jdbcType=VARCHAR}-->
+		<!---->
+    <!--where  = #{record.,jdbcType=VARCHAR}-->
+  <!--</update>-->
+</mapper>

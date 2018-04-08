@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cn.hxg.dao.AdminMapper">
+    <resultMap id="BaseResultMap" type="com.cn.hxg.entity.Admin">
+        <id column="warden" property="warden" jdbcType="VARCHAR"/>
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+        <result column="role" property="role" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+    warden,password,role
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from admin
+        where warden = #{warden,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from admin
+    where warden = #{warden,jdbcType=VARCHAR}
+  </delete>
+
+    <insert id="insert" parameterType="com.cn.hxg.entity.Admin">
+    insert into admin (warden,password,role)
+    values (#{warden,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},#{role,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.cn.hxg.entity.Admin">
+        insert into admin
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="warden != null">
+                warden,
+            </if>
+            <if test="password != null">
+                password,
+            </if>
+            <if test="role != null">
+                role
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="warden != null">
+                #{warden,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="role != null">
+                #{role,jdbcType=VARCHAR}
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.cn.hxg.entity.Admin">
+        update admin
+        <set>
+            <if test="record.password != null">
+                password = #{record.password,jdbcType=VARCHAR},
+            </if>
+            <if test="record.role != null">
+                role = #{record.role,jdbcType=VARCHAR}
+            </if>
+        </set>
+        where warden = #{record.warden,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.cn.hxg.entity.Admin">
+    update admin
+    set password = #{record.password,jdbcType=VARCHAR},
+		role = #{record.role,jdbcType=VARCHAR}
+		
+    where warden = #{record.warden,jdbcType=VARCHAR}
+  </update>
+</mapper>
