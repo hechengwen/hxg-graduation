@@ -13,7 +13,7 @@
 
     <mvc:annotation-driven/>
 
-    <context:component-scan base-package="com.cn.hxg.Controller">
+    <context:component-scan base-package="com.cn.hxg.controller">
         <context:include-filter expression="org.springframework.stereotype.Controller" type="annotation"/>
     </context:component-scan>
 

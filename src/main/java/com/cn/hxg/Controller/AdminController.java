@@ -1,4 +1,4 @@
-package com.cn.hxg.Controller;
+package com.cn.hxg.controller;
 
 import com.cn.hxg.base.BaseController;
 import com.cn.hxg.entity.Admin;
