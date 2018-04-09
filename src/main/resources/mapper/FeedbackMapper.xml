@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cn.hxg.dao.FeedbackMapper" >
+    <resultMap id="BaseResultMap" type="com.cn.hxg.entity.Feedback" >
+            <id column="id" property="id" jdbcType="INTEGER" />
+            <result column="stu_name" property="stuName" jdbcType="VARCHAR" />
+            <result column="desc" property="desc" jdbcType="VARCHAR" />
+            <result column="feed_time" property="feedTime" jdbcType="TIMESTAMP" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+    id,stu_name,`desc`,feed_time
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from feedback
+        where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from feedback
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+
+  <insert id="insert" parameterType="com.cn.hxg.entity.Feedback">
+<!--    <selectKey resultType="java.lang.Integer" order="BEFORE" keyProperty="id">
+        SELECT UPPER(UUID()) AS id
+    </selectKey>-->
+    insert into feedback (id,stu_name,`desc`,
+		feed_time)
+    values (#{id,jdbcType=INTEGER},#{stuName,jdbcType=VARCHAR},#{desc,jdbcType=VARCHAR},
+		#{feedTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cn.hxg.entity.Feedback">
+<!--        <selectKey resultType="java.lang.Integer" order="BEFORE" keyProperty="id">
+            SELECT UPPER(UUID()) AS id
+        </selectKey>-->
+    insert into feedback
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null" >
+          id,
+      </if>
+      <if test="stuName != null" >
+          stu_name,
+      </if>
+      <if test="desc != null" >
+          desc,
+      </if>
+      <if test="feedTime != null" >
+          feed_time
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null" >
+          #{id,jdbcType=INTEGER},
+      </if>
+      <if test="stuName != null" >
+          #{stuName,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null" >
+          #{desc,jdbcType=VARCHAR},
+      </if>
+      <if test="feedTime != null" >
+          #{feedTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.cn.hxg.entity.Feedback">
+    update feedback
+    <set>
+    <if test="record.stuName != null">
+        stu_name = #{record.stuName,jdbcType=VARCHAR},
+    </if>
+    <if test="record.desc != null">
+        desc = #{record.desc,jdbcType=VARCHAR},
+    </if>
+    <if test="record.feedTime != null">
+        feed_time = #{record.feedTime,jdbcType=TIMESTAMP}
+    </if>
+    </set>
+    where id = #{record.id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cn.hxg.entity.Feedback">
+    update feedback
+    set stu_name = #{record.stuName,jdbcType=VARCHAR},
+		desc = #{record.desc,jdbcType=VARCHAR},
+		feed_time = #{record.feedTime,jdbcType=TIMESTAMP}
+		
+    where id = #{record.id,jdbcType=INTEGER}
+  </update>
+</mapper>

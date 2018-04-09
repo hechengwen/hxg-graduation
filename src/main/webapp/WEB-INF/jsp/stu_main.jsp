@@ -6,8 +6,8 @@
     <link href="CSS/style.css" rel="stylesheet">
 </head>
 <body onLoad="clockon(bgclock)">
-<%@include file="banner.jsp" %>
-<%@include file="navigation.jsp" %>
+<%@include file="banner2.jsp" %>
+<%@include file="navigation2.jsp" %>
 
 <table width="778" height="510" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF"
        class="tableBorder_gray">

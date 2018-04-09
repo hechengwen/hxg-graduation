@@ -1,5 +1,6 @@
 package com.cn.hxg.entity;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,5 +31,7 @@ public class Register extends BaseObject {
     /** 学生姓名 */
     private String name;
 
+    /** 挂号费 */
+    private BigDecimal cost;
 
 }

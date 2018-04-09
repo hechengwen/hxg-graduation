@@ -6,6 +6,8 @@ import com.cn.hxg.dao.RegisterMapper;
 import com.cn.hxg.entity.Register;
 import com.cn.hxg.service.RegisterService;
 
+import java.util.List;
+
 @Service
 public class RegisterServiceImpl implements RegisterService {
 
@@ -34,5 +36,9 @@ public class RegisterServiceImpl implements RegisterService {
 
     public int updateByPrimaryKey(Register record) {
         return registerMapper.updateByPrimaryKey(record);
+    }
+
+    public List<Register> getStudentRegister(String name){
+        return registerMapper.getStudentRegister(name);
     }
 }

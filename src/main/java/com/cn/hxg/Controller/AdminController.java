@@ -53,6 +53,7 @@ public class AdminController extends BaseController {
         Admin admin1 = new Admin();
         admin1.setPassword(MD5.MD5(password));
         admin1.setRole(username);
+        admin1.setUserType(userType);
         adminService.insert(admin1);
 
         restData.setSuccess(1);
@@ -60,8 +61,12 @@ public class AdminController extends BaseController {
     }
 
     @RequestMapping("index")
-    public ModelAndView index() {
-        return new ModelAndView("index");
+    public String index() {
+        Admin admin = (Admin) getRequest().getSession().getAttribute("userInfo");
+        if (admin == null) {
+            return "index";
+        }
+        return "redirect:/admin/stuMain";
     }
 
     @RequestMapping(value = "login")
@@ -96,6 +101,7 @@ public class AdminController extends BaseController {
         getRequest().getSession().setAttribute("g_name", admin.getRole());
 
         restData.setSuccess(1);
+        restData.setData(userType);
         return restData;
     }
 
@@ -106,10 +112,22 @@ public class AdminController extends BaseController {
         return new ModelAndView("index");
     }
 
-    @RequestMapping(value = "/main")
+    @RequestMapping(value = "/sysMain")
     @LoginRequired
-    public ModelAndView main() {
+    public ModelAndView sysMain() {
         ModelAndView model = new ModelAndView("main");
+
+        Admin admin = (Admin) getRequest().getSession().getAttribute("userInfo");
+
+        model.addObject("username", admin.getRole());
+
+        return model;
+    }
+
+    @RequestMapping(value = "/stuMain")
+    @LoginRequired
+    public ModelAndView stuMain() {
+        ModelAndView model = new ModelAndView("stu_main");
 
         Admin admin = (Admin) getRequest().getSession().getAttribute("userInfo");
 

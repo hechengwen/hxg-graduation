@@ -19,17 +19,17 @@
                 }
             }
         </script>
-        <td width="66%" align="right" bgcolor="#B0690B" class="word_white"><a href="##" class="word_white">本院简介</a> | <a
+        <td width="66%" align="right" bgcolor="#B0690B" class="word_white"><a href="##" class="word_white">医务室简介</a> | <a
                 onmouseover=showmenu(event,xitongmenu) onmouseout=delayhidemenu() class="word_white"
-                style="CURSOR:hand">基本管理</a> |
+                style="CURSOR:hand">预约挂号</a> |
             <a onmouseover=showmenu(event,menzhenmenu) onmouseout=delayhidemenu() class="word_white"
-               style="CURSOR:hand">门诊管理</a> | <a onmouseover=showmenu(event,bingrenmenu) onmouseout=delayhidemenu()
+               style="CURSOR:hand">意见反馈</a> | <a onmouseover=showmenu(event,bingrenmenu) onmouseout=delayhidemenu()
                                                  style="CURSOR:hand" class="word_white">住院管理</a> | <a
                     onmouseover=showmenu(event,yaopinmenu) onmouseout=delayhidemenu() class="word_white"
                     style="CURSOR:hand">药品管理</a> | <a onmouseover=showmenu(event,yishimenu) onmouseout=delayhidemenu()
                                                       class="word_white" style="CURSOR:hand">医师管理</a> | <a
                     onmouseover=showmenu(event,querymenu) onmouseout=delayhidemenu() class="word_white"
-                    style="CURSOR:hand">系统查询</a> | <a href="#" onClick="quit()" class="word_white">系统退出</a></td>
+                    style="CURSOR:hand">系统查询</a> | <a href="#" onClick="quit()" class="word_white">注销登录</a></td>
         <td width="2%" bgcolor="#B0690B">&nbsp;</td>
     </tr>
     <tr bgcolor="#B0690B">
