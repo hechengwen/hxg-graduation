@@ -2,6 +2,8 @@ package com.cn.hxg.base;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,5 +30,10 @@ public class BaseController {
                 + new String(fileName.getBytes("GBK"), "ISO8859-1")+"\"");//兼容firefox文件名包括空格字符
 
         return response;
+    }
+
+    public HttpServletRequest getRequest() {
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        return request;
     }
 }

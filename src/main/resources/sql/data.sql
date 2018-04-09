@@ -1,10 +1,11 @@
 # 管理员信息表
 CREATE TABLE `admin` (
   `warden` int(30) NOT NULL AUTO_INCREMENT COMMENT '员工号',
-  `password` varchar(30) DEFAULT NULL COMMENT '密码',
+  `password` varchar(60) DEFAULT NULL COMMENT '密码',
   `role` varchar(30) DEFAULT NULL COMMENT '姓名',
+  `user_type` varchar(5) DEFAULT NULL COMMENT '用户类型(0:管理员 1:学生)',
   PRIMARY KEY (`warden`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 
 # 医生信息表

@@ -16,4 +16,6 @@ public interface AdminService {
 
     int updateByPrimaryKey(Admin record);
 
+    Admin selectByRole(String role,String userType);
+
 }
