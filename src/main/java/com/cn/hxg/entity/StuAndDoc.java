@@ -1,25 +1,41 @@
 package com.cn.hxg.entity;
 
-import java.util.Date;
+import com.cn.hxg.base.BaseObject;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
-import com.cn.hxg.base.BaseObject;
+import java.util.Date;
 
-
+/**
+ * Copyright (C), 2017，jumore Tec.
+ * Author: hechengwen
+ * Version:
+ * Date: 2018/4/10 20:20
+ * Description:
+ * Others:
+ */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
 @NoArgsConstructor
-public class Student extends BaseObject {
+public class StuAndDoc extends BaseObject {
 
-    /** 学号 */
-    private String sno;
+
+    /** 员工号 */
+    private String warden;
+
+    /** 密码 */
+    private String password;
+
+    private String userType;
+
+    /** 从业年份 */
+    private String cynf;
 
     /** 姓名 */
-    private String name;
+    private String username;
 
     /** 性别 */
     private String sex;
@@ -47,6 +63,4 @@ public class Student extends BaseObject {
 
     /** 邮箱 */
     private String email;
-
-
 }

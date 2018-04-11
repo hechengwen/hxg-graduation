@@ -12,7 +12,7 @@
     </table>
       <table width="93%" height="79"  border="0" cellpadding="0" cellspacing="0">
         <tr>
-          <td height="50" align="right" valign="bottom" ><h5>当前登录用户：${username}</h5></td>
+          <td height="50" align="right" valign="bottom" ><h5>当前登录用户：${g_name}</h5></td>
         </tr>
     </table></td>
   </tr>

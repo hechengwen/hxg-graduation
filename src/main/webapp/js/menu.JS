@@ -1,5 +1,5 @@
-var menuOffX=0	//�˵���������������˾���
-var menuOffY=18	//�˵����������ֶ��˾���
+var menuOffX=0	//菜单距连接文字最左端距离
+var menuOffY=18	//菜单距连接文字顶端距离
 var fo_shadows=new Array()
 var linkset=new Array()
 var ie4=document.all&&navigator.userAgent.indexOf("Opera")==-1
@@ -173,29 +173,29 @@ function outbg(tdbg){
 tdbg.style.background='url(../Images/item_out.gif)'
 tdbg.style.border=''
 }
-var xitongmenu='<table width=80><tr><td id=xitongfee onMouseOver=overbg(xitongfee) onMouseOut=outbg(xitongfee)><a href=xitong_set.jsp>��������</a></td><tr>\
-	<tr><td id=readerType onMouseOver=overbg(readerType) onMouseOut=outbg(readerType)><a href=addyiliaobuzhu.jsp>ҽ����Ϣ¼��</a></td></tr>\
-<tr><td id=readerType onMouseOver=overbg(readerType) onMouseOut=outbg(readerType)><a href=yiliaobuzhu.jsp>ҽ�Ʋ�������</a></td></tr>\
+var xitongmenu='<table width=80><tr><td id=xitongfee onMouseOver=overbg(xitongfee) onMouseOut=outbg(xitongfee)><a href="/feedback/getList">意见反馈列表</a></td><tr><!--\
+	<tr><td id=readerType onMouseOver=overbg(readerType) onMouseOut=outbg(readerType)><a href=addyiliaobuzhu.jsp>医保信息录入</a></td></tr>\
+<tr><td id=readerType onMouseOver=overbg(readerType) onMouseOut=outbg(readerType)><a href=yiliaobuzhu.jsp>医疗补助管理</a></td></tr>-->\
 </table>'
-var menzhenmenu='<table width=80><tr><td id=menzhen onMouseOver=overbg(menzhen) onMouseOut=outbg(menzhen)><a href=guahao_add.jsp>����Һ�</a></td></tr>\
-<tr><td id=menzhenjiuzhen onMouseOver=overbg(menzhenjiuzhen) onMouseOut=outbg(menzhenjiuzhen)><a href=menzhenjiuzhen.jsp>�������</a></td><tr>\
-<tr><td id=menzhenshoufei onMouseOver=overbg(menzhenshoufei) onMouseOut=outbg(menzhenshoufei)><a href=menzhengjiesuan.jsp>�������</a></td></tr>\
+var menzhenmenu='<table width=80><!--<tr><td id=menzhen onMouseOver=overbg(menzhen) onMouseOut=outbg(menzhen)><a href=guahao_add.jsp>门诊挂号</a></td></tr>-->\
+<tr><td id=menzhenjiuzhen onMouseOver=overbg(menzhenjiuzhen) onMouseOut=outbg(menzhenjiuzhen)><a href="/register/getRegisterList">门诊就诊</a></td><tr>\
+<tr><td id=menzhenshoufei onMouseOver=overbg(menzhenshoufei) onMouseOut=outbg(menzhenshoufei)><a href="/register/getRegisterSettle">门诊结算</a></td></tr>\
 </table>'
-var bingrenmenu='<table width=80><tr><td id=bingrendangan onMouseOver=overbg(bingrendangan) onMouseOut=outbg(bingrendangan)><a href=zhuyuan.jsp>סԺ����</a></td></tr>\
-<tr><td id=chuyuan onMouseOver=overbg(chuyuan) onMouseOut=outbg(chuyuan)><a href=chuyuan.jsp>��Ժ����</a></td></tr>\
+var bingrenmenu='<table width=80><tr><td id=bingrendangan onMouseOver=overbg(bingrendangan) onMouseOut=outbg(bingrendangan)><a href=zhuyuan.jsp>住院治疗</a></td></tr>\
+<tr><td id=chuyuan onMouseOver=overbg(chuyuan) onMouseOut=outbg(chuyuan)><a href=chuyuan.jsp>出院结算</a></td></tr>\
 </table>'
-var yaopinmenu='<table width=80><tr><td id=yaopinluru onMouseOver=overbg(yaopinluru) onMouseOut=outbg(yaopinluru)><a href=yaopin_add.jsp>ҩƷ��Ϣ¼��</a></td></tr>\
-<tr><td id=yaopin onMouseOver=overbg(yaopin) onMouseOut=outbg(yaopin)><a href=yaopin.jsp>ҩƷ��Ϣ����</a></td></tr>\
+var yaopinmenu='<table width=80><tr><td id=yaopinluru onMouseOver=overbg(yaopinluru) onMouseOut=outbg(yaopinluru)><a href="/medicine/index">药品信息录入</a></td></tr>\
+<tr><td id=yaopin onMouseOver=overbg(yaopin) onMouseOut=outbg(yaopin)><a href="/medicine/select">药品信息管理</a></td></tr>\
 </table>'
-var yishimenu='<table width=80><tr><td id=yisi onMouseOver=overbg(yishi) onMouseOut=outbg(yishi)><a href=yishi.jsp>ҽʦ��Ϣ����</a></td></tr>\
-<tr><td id=addyishi onMouseOver=overbg(addyishi) onMouseOut=outbg(addyishi)><a href=yishi_add.jsp>ҽʦ��Ϣ¼��</a></td></tr>\
+var yishimenu='<table width=80><tr><td id=yisi onMouseOver=overbg(yishi) onMouseOut=outbg(yishi)><a href=yishi.jsp>医师信息设置</a></td></tr>\
+<tr><td id=addyishi onMouseOver=overbg(addyishi) onMouseOut=outbg(addyishi)><a href=yishi_add.jsp>医师信息录入</a></td></tr>\
 </table>'
-var querymenu='<table width=80><tr><td id=bingliQuery onMouseOver=overbg(bingliQuery) onMouseOut=outbg(bingliQuery)><a href=yishichaxun.jsp>ҽʦ��ѯ</a></td></tr>\
-<tr><td id=bingrenxinxiQuery onMouseOver=overbg(bingrenxinxiQuery) onMouseOut=outbg(bingrenxinxiQuery)><a href=bingrenxinxi.jsp>�����ѯ</a></td></tr>\
-<tr><td id=bingrenxinxiQuery onMouseOver=overbg(bingrenxinxiQuery) onMouseOut=outbg(bingrenxinxiQuery)><a href=zhuyuanxinxi.jsp>סԺ��ѯ</a></td></tr>\
-<tr><td id=yaopinxinxiQuery onMouseOver=overbg(yaopinxinxiQuery) onMouseOut=outbg(yaopinxinxiQuery)><a href=yaopinxinxi.jsp>ҩƷ��ѯ</a></td></tr>\
-<tr><td id=yaopinqixianQuery onMouseOver=overbg(yaopinqixianQuery) onMouseOut=outbg(yaopinqixianQuery)><a href=yaopinqixian.jsp>ҩƷ���ڲ�ѯ</a></td></tr>\
+var querymenu='<table width=80><tr><td id=bingliQuery onMouseOver=overbg(bingliQuery) onMouseOut=outbg(bingliQuery)><a href=yishichaxun.jsp>医师查询</a></td></tr>\
+<tr><td id=bingrenxinxiQuery onMouseOver=overbg(bingrenxinxiQuery) onMouseOut=outbg(bingrenxinxiQuery)><a href=bingrenxinxi.jsp>门诊查询</a></td></tr>\
+<tr><td id=bingrenxinxiQuery onMouseOver=overbg(bingrenxinxiQuery) onMouseOut=outbg(bingrenxinxiQuery)><a href=zhuyuanxinxi.jsp>住院查询</a></td></tr>\
+<tr><td id=yaopinxinxiQuery onMouseOver=overbg(yaopinxinxiQuery) onMouseOut=outbg(yaopinxinxiQuery)><a href=yaopinxinxi.jsp>药品查询</a></td></tr>\
+<tr><td id=yaopinqixianQuery onMouseOver=overbg(yaopinqixianQuery) onMouseOut=outbg(yaopinqixianQuery)><a href=yaopinqixian.jsp>药品过期查询</a></td></tr>\
 </table>'
-var gerenzhongxin='<table width=80><tr><td id=yisi onMouseOver=overbg(yishi) onMouseOut=outbg(yishi)><a href=gerenzhongxin.jsp>�鿴������Ϣ</a></td></tr>\
-<tr><td id=addyishi onMouseOver=overbg(addyishi) onMouseOut=outbg(addyishi)><a href=yishi_xiugai.jsp>�޸ĸ�����Ϣ</a></td></tr>\
+var gerenzhongxin='<table width=80><tr><td id=yisi onMouseOver=overbg(yishi) onMouseOut=outbg(yishi)><a href=gerenzhongxin.jsp>查看个人信息</a></td></tr>\
+<tr><td id=addyishi onMouseOver=overbg(addyishi) onMouseOut=outbg(addyishi)><a href=yishi_xiugai.jsp>修改个人信息</a></td></tr>\
 </table>'

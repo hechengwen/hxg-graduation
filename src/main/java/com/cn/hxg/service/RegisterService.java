@@ -1,6 +1,7 @@
 package com.cn.hxg.service;
 
 import com.cn.hxg.entity.Register;
+import com.cn.hxg.entity.RegisterData;
 
 import java.util.List;
 
@@ -19,5 +20,7 @@ public interface RegisterService {
     int updateByPrimaryKey(Register record);
 
     List<Register> getStudentRegister(String name);
+
+    List<RegisterData> getRegisterList(String serialNumber);
 
 }

@@ -6,6 +6,8 @@ import com.cn.hxg.service.FeedbackService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class FeedbackServiceImpl implements FeedbackService {
 
@@ -34,5 +36,9 @@ public class FeedbackServiceImpl implements FeedbackService {
 
     public int updateByPrimaryKey(Feedback record) {
         return feedbackMapper.updateByPrimaryKey(record);
+    }
+
+    public List<Feedback> getList(String id){
+        return feedbackMapper.getList(id);
     }
 }

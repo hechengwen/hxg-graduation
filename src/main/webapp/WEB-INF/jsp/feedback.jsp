@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>医院医务管理系统</title>
-    <link href="CSS/style.css" rel="stylesheet">
+    <link href="/CSS/style.css" rel="stylesheet">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <%  request.setCharacterEncoding("UTF-8");

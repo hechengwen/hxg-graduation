@@ -1,8 +1,8 @@
 <%@ page contentType="text/html; charset=gb2312"%>
 
 <meta http-equiv="Content-Type" content="text/html; charset=gbk">
-<script src="JS/onclock.JS"></script>
-<script src="JS/menu.JS"></script>
+<script src="/js/onclock.JS"></script>
+<script src="/js/menu.JS"></script>
 <div class=menuskin id=popmenu
       onmouseover="clearhidemenu();highlightmenu(event,'on')"
       onmouseout="highlightmenu(event,'off');dynamichide(event)" style="Z-index:100;position:absolute;"></div>

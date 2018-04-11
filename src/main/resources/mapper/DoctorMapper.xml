@@ -2,11 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.cn.hxg.dao.DoctorMapper" >
     <resultMap id="BaseResultMap" type="com.cn.hxg.entity.Doctor" >
-            <id column="sno" property="sno" jdbcType="VARCHAR" />
+            <id column="sno" property="sno" jdbcType="INTEGER" />
             <result column="name" property="name" jdbcType="VARCHAR" />
             <result column="sex" property="sex" jdbcType="VARCHAR" />
-            <result column="birth" property="birth" jdbcType="TIMESTAMP" />
-            <result column="cynf" property="cynf" jdbcType="TIMESTAMP" />
+            <result column="birth" property="birth" jdbcType="VARCHAR" />
+            <result column="cynf" property="cynf" jdbcType="VARCHAR" />
             <result column="tel" property="tel" jdbcType="VARCHAR" />
             <result column="email" property="email" jdbcType="VARCHAR" />
     </resultMap>
@@ -19,11 +19,11 @@
         select
         <include refid="Base_Column_List" />
         from doctor
-        where sno = #{sno,jdbcType=VARCHAR}
+        where sno = #{sno,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from doctor
-    where sno = #{sno,jdbcType=VARCHAR}
+    where sno = #{sno,jdbcType=INTEGER}
   </delete>
 
   <insert id="insert" parameterType="com.cn.hxg.entity.Doctor">
@@ -33,8 +33,8 @@
     insert into doctor (sno,name,sex,
 		birth,cynf,tel,
 		email)
-    values (#{sno,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR},#{sex,jdbcType=VARCHAR},
-		#{birth,jdbcType=TIMESTAMP},#{cynf,jdbcType=TIMESTAMP},#{tel,jdbcType=VARCHAR},
+    values (#{sno,jdbcType=INTEGER},#{name,jdbcType=VARCHAR},#{sex,jdbcType=VARCHAR},
+		#{birth,jdbcType=VARCHAR},#{cynf,jdbcType=VARCHAR},#{tel,jdbcType=VARCHAR},
 		#{email,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.cn.hxg.entity.Doctor">
@@ -67,7 +67,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="sno != null" >
-          #{sno,jdbcType=VARCHAR},
+          #{sno,jdbcType=INTEGER},
       </if>
       <if test="name != null" >
           #{name,jdbcType=VARCHAR},
@@ -76,10 +76,10 @@
           #{sex,jdbcType=VARCHAR},
       </if>
       <if test="birth != null" >
-          #{birth,jdbcType=TIMESTAMP},
+          #{birth,jdbcType=VARCHAR},
       </if>
       <if test="cynf != null" >
-          #{cynf,jdbcType=TIMESTAMP},
+          #{cynf,jdbcType=VARCHAR},
       </if>
       <if test="tel != null" >
           #{tel,jdbcType=VARCHAR},
@@ -100,10 +100,10 @@
         sex = #{record.sex,jdbcType=VARCHAR},
     </if>
     <if test="record.birth != null">
-        birth = #{record.birth,jdbcType=TIMESTAMP},
+        birth = #{record.birth,jdbcType=VARCHAR},
     </if>
     <if test="record.cynf != null">
-        cynf = #{record.cynf,jdbcType=TIMESTAMP},
+        cynf = #{record.cynf,jdbcType=VARCHAR},
     </if>
     <if test="record.tel != null">
         tel = #{record.tel,jdbcType=VARCHAR},
@@ -112,17 +112,17 @@
         email = #{record.email,jdbcType=VARCHAR}
     </if>
     </set>
-    where sno = #{record.sno,jdbcType=VARCHAR}
+    where sno = #{record.sno,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.cn.hxg.entity.Doctor">
     update doctor
     set name = #{record.name,jdbcType=VARCHAR},
 		sex = #{record.sex,jdbcType=VARCHAR},
-		birth = #{record.birth,jdbcType=TIMESTAMP},
-		cynf = #{record.cynf,jdbcType=TIMESTAMP},
+		birth = #{record.birth,jdbcType=VARCHAR},
+		cynf = #{record.cynf,jdbcType=VARCHAR},
 		tel = #{record.tel,jdbcType=VARCHAR},
 		email = #{record.email,jdbcType=VARCHAR}
 		
-    where sno = #{record.sno,jdbcType=VARCHAR}
+    where sno = #{record.sno,jdbcType=INTEGER}
   </update>
 </mapper>

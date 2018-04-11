@@ -17,24 +17,30 @@ import com.cn.hxg.base.BaseObject;
 public class Medicine extends BaseObject {
 
     /** 药品编号 */
-    private String drugNum;
+    private Integer drugNum;
 
     /** 药品名称 */
     private String drugName;
 
-    /** 生产日期 */
-    private Date productionDate;
+    /** 药品类型 */
+    private String drugType;
 
-    /** 有效日期 */
-    private Date effectiveDate;
+    /** 生产日期 */
+    private String productionDate;
+
+    /** 有效期 */
+    private String effectiveDate;
 
     /** 生产企业 */
     private String productionEnterprise;
 
-    /** 价格 */
-    private BigDecimal price;
+    /** 购买价格 */
+    private BigDecimal buyPrice;
 
-    /** 数量 */
+    /** 销售价格 */
+    private BigDecimal sellerPrice;
+
+    /** 进货数量 */
     private Integer number;
 
     /** 进货单位 */

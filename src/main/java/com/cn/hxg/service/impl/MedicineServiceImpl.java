@@ -6,13 +6,15 @@ import com.cn.hxg.dao.MedicineMapper;
 import com.cn.hxg.entity.Medicine;
 import com.cn.hxg.service.MedicineService;
 
+import java.util.List;
+
 @Service
 public class MedicineServiceImpl implements MedicineService {
 
     @Autowired
     private MedicineMapper medicineMapper;
     
-    public int deleteByPrimaryKey(String key) {
+    public int deleteByPrimaryKey(int key) {
         return medicineMapper.deleteByPrimaryKey(key);
     }
     
@@ -24,7 +26,7 @@ public class MedicineServiceImpl implements MedicineService {
         return medicineMapper.insertSelective(record);
     }
 
-    public Medicine selectByPrimaryKey(String key) {
+    public Medicine selectByPrimaryKey(int key) {
         return medicineMapper.selectByPrimaryKey(key);
     }
 
@@ -34,5 +36,13 @@ public class MedicineServiceImpl implements MedicineService {
 
     public int updateByPrimaryKey(Medicine record) {
         return medicineMapper.updateByPrimaryKey(record);
+    }
+
+    public int getAllTotal(){
+        return medicineMapper.getAllTotal();
+    }
+
+    public List getAll(Integer pageNum, Integer pageSize,String data){
+        return medicineMapper.getAll(pageNum,pageSize,data);
     }
 }

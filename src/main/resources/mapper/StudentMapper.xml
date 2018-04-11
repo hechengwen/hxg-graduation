@@ -5,8 +5,8 @@
             <id column="sno" property="sno" jdbcType="VARCHAR" />
             <result column="name" property="name" jdbcType="VARCHAR" />
             <result column="sex" property="sex" jdbcType="VARCHAR" />
-            <result column="birth" property="birth" jdbcType="TIMESTAMP" />
-            <result column="rxsj" property="rxsj" jdbcType="TIMESTAMP" />
+            <result column="birth" property="birth" jdbcType="VARCHAR" />
+            <result column="rxsj" property="rxsj" jdbcType="VARCHAR" />
             <result column="xz" property="xz" jdbcType="INTEGER" />
             <result column="xb" property="xb" jdbcType="VARCHAR" />
             <result column="bj" property="bj" jdbcType="VARCHAR" />
@@ -40,7 +40,7 @@
 		xb,bj,room,
 		tel,email)
     values (#{sno,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR},#{sex,jdbcType=VARCHAR},
-		#{birth,jdbcType=TIMESTAMP},#{rxsj,jdbcType=TIMESTAMP},#{xz,jdbcType=INTEGER},
+		#{birth,jdbcType=VARCHAR},#{rxsj,jdbcType=VARCHAR},#{xz,jdbcType=INTEGER},
 		#{xb,jdbcType=VARCHAR},#{bj,jdbcType=VARCHAR},#{room,jdbcType=VARCHAR},
 		#{tel,jdbcType=VARCHAR},#{email,jdbcType=VARCHAR})
   </insert>
@@ -95,10 +95,10 @@
           #{sex,jdbcType=VARCHAR},
       </if>
       <if test="birth != null" >
-          #{birth,jdbcType=TIMESTAMP},
+          #{birth,jdbcType=VARCHAR},
       </if>
       <if test="rxsj != null" >
-          #{rxsj,jdbcType=TIMESTAMP},
+          #{rxsj,jdbcType=VARCHAR},
       </if>
       <if test="xz != null" >
           #{xz,jdbcType=INTEGER},
@@ -131,10 +131,10 @@
         sex = #{record.sex,jdbcType=VARCHAR},
     </if>
     <if test="record.birth != null">
-        birth = #{record.birth,jdbcType=TIMESTAMP},
+        birth = #{record.birth,jdbcType=VARCHAR},
     </if>
     <if test="record.rxsj != null">
-        rxsj = #{record.rxsj,jdbcType=TIMESTAMP},
+        rxsj = #{record.rxsj,jdbcType=VARCHAR},
     </if>
     <if test="record.xz != null">
         xz = #{record.xz,jdbcType=INTEGER},
@@ -161,8 +161,8 @@
     update student
     set name = #{record.name,jdbcType=VARCHAR},
 		sex = #{record.sex,jdbcType=VARCHAR},
-		birth = #{record.birth,jdbcType=TIMESTAMP},
-		rxsj = #{record.rxsj,jdbcType=TIMESTAMP},
+		birth = #{record.birth,jdbcType=VARCHAR},
+		rxsj = #{record.rxsj,jdbcType=VARCHAR},
 		xz = #{record.xz,jdbcType=INTEGER},
 		xb = #{record.xb,jdbcType=VARCHAR},
 		bj = #{record.bj,jdbcType=VARCHAR},

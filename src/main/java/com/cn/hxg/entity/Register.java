@@ -34,4 +34,6 @@ public class Register extends BaseObject {
     /** 挂号费 */
     private BigDecimal cost;
 
+
+
 }

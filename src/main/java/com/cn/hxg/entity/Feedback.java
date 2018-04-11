@@ -28,5 +28,6 @@ public class Feedback extends BaseObject {
     /** 反馈时间 */
     private Date feedTime;
 
+    private String feedTimeStr;
 
 }
