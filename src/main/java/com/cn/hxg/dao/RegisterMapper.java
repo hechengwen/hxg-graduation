@@ -2,6 +2,7 @@ package com.cn.hxg.dao;
 
 import com.cn.hxg.entity.Register;
 
+import com.cn.hxg.entity.RegisterData;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -23,5 +24,7 @@ public interface RegisterMapper {
     int updateByPrimaryKey(@Param("record") Register record);
 
     List<Register> getStudentRegister(@Param("name")String name);
+
+    List<RegisterData> getRegisterList(@Param("serialNumber")String serialNumber);
 
 }

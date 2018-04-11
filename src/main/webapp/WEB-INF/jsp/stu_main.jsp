@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 <head>
     <title>医院医务管理系统</title>
-    <link href="CSS/style.css" rel="stylesheet">
+    <link href="/CSS/style.css" rel="stylesheet">
 </head>
 <body onLoad="clockon(bgclock)">
 <%@include file="banner2.jsp" %>

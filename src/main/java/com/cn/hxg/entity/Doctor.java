@@ -25,10 +25,10 @@ public class Doctor extends BaseObject {
     private String sex;
 
     /** 出生日期 */
-    private Date birth;
+    private String birth;
 
     /** 从业年份 */
-    private Date cynf;
+    private String cynf;
 
     /** 联系电话 */
     private String tel;

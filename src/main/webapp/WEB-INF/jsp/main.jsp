@@ -1,9 +1,9 @@
-<%@ page language="java" import="java.util.*" pageEncoding="gbk" %>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
 <html>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <head>
-    <title>医院医务管理系统</title>
-    <link href="CSS/style.css" rel="stylesheet">
+    <title>鍖婚櫌鍖诲姟绠＄悊绯荤粺</title>
+    <link href="/CSS/style.css" rel="stylesheet">
 </head>
 <body onLoad="clockon(bgclock)">
 <%@include file="banner.jsp" %>
@@ -15,7 +15,7 @@
         <td align="center" valign="top" style="padding:5px;">
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr>
-                    <td height="20" align="left" valign="middle" class="word_orange">当前位置：首页 &gt;&gt;&gt;&nbsp;</td>
+                    <td height="20" align="left" valign="middle" class="word_orange">褰撳墠浣嶇疆锛氶椤� &gt;&gt;&gt;&nbsp;</td>
                 </tr>
                 <tr>
                     <td valign="top">
@@ -30,10 +30,10 @@
                                             <td width="50%" height="50" rowspan="2"><img src="/Images/hospital.jpg"
                                                                                          width="250" height="300"></td>
                                             <td width="96%" height="203" align="center" valign="top">
-                                                <textarea rows="15" cols="65" >当前位置当前位置当前位置当前位置当前位置当前位置当前位置当前位置当前位置
-                                                    当前位置当前位置当前位置当前位置当前位置当前位置当前位置当前位置当前位置当前位置当前位置当前位置当前位置
-                                                    当前位置当前位置当前位置当前位置当前位置当前位置当前位置当前位置当前位置当前位置当前位置当前位置当前位置
-                                                    当前位置当前位置当前位置当前位置</textarea>
+                                                <textarea rows="15" cols="65" >褰撳墠浣嶇疆褰撳墠浣嶇疆褰撳墠浣嶇疆褰撳墠浣嶇疆褰撳墠浣嶇疆褰撳墠浣嶇疆褰撳墠浣嶇疆褰撳墠浣嶇疆褰撳墠浣嶇疆
+                                                    褰撳墠浣嶇疆褰撳墠浣嶇疆褰撳墠浣嶇疆褰撳墠浣嶇疆褰撳墠浣嶇疆褰撳墠浣嶇疆褰撳墠浣嶇疆褰撳墠浣嶇疆褰撳墠浣嶇疆褰撳墠浣嶇疆褰撳墠浣嶇疆褰撳墠浣嶇疆褰撳墠浣嶇疆
+                                                    褰撳墠浣嶇疆褰撳墠浣嶇疆褰撳墠浣嶇疆褰撳墠浣嶇疆褰撳墠浣嶇疆褰撳墠浣嶇疆褰撳墠浣嶇疆褰撳墠浣嶇疆褰撳墠浣嶇疆褰撳墠浣嶇疆褰撳墠浣嶇疆褰撳墠浣嶇疆褰撳墠浣嶇疆
+                                                    褰撳墠浣嶇疆褰撳墠浣嶇疆褰撳墠浣嶇疆褰撳墠浣嶇疆</textarea>
                                                 <table width="100%" border="1" cellpadding="0" cellspacing="0"
                                                        bordercolor="#FFFFFF" bordercolordark="#B7B6B6"
                                                        bordercolorlight="#FFFFFF">

@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>医院医务管理系统</title>
-    <link href="CSS/style.css" rel="stylesheet">
+    <link href="/CSS/style.css" rel="stylesheet">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <%  request.setCharacterEncoding("UTF-8");
@@ -20,7 +20,7 @@
             <table width="100%" height="444" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF"
                    class="tableBorder_gray">
                 <tr>
-                    <td height="27" valign="top" style="padding:5px;" class="word_orange">当前位置：门诊管理 &gt; 门诊挂号&gt;&gt;&gt;</td>
+                    <td height="27" valign="top" style="padding:5px;" class="word_orange">当前位置：预约挂号 &gt; 门诊挂号&gt;&gt;&gt;</td>
                 </tr>
                 <tr>
                     <td height="417" align="center" valign="top" style="padding:5px;">
@@ -50,7 +50,7 @@
                                                         <td align="center">挂号人名：</td>
                                                         <td width="427" height="39"><input name="m_name" type="text" id="m_name">
                                                           * <div id="div2" style="display: inline"></div></td>
-                                                      </tr>
+                                                      </tr>--%>
 
                                                       <tr>
                                                         <td align="center">性别：</td>
@@ -58,7 +58,7 @@
                                                             <option value="男">男</option>
                                                             <option value="女">女</option>
                                                           </select>          </td>
-                                                      </tr>--%>
+                                                      </tr>
                                                         <tr>
                                                             <td align="center">挂号科室：</td>
                                                             <td height="39">
@@ -114,9 +114,7 @@
                                                                 &nbsp;
                                                                 <input name="Submit2" type="button" class="btn_grey"
                                                                        value="返回" onClick="history.back()">
-                                                                &nbsp;
-                                                                <input name="Submit3" type="reset" class="btn_grey"
-                                                                       value="重置"></td>
+
                                                         </tr>
                                                     </table>
                                                 </td>

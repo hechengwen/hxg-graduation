@@ -3,8 +3,13 @@ package com.cn.hxg.controller;
 import com.cn.hxg.annotation.LoginRequired;
 import com.cn.hxg.base.BaseController;
 import com.cn.hxg.entity.Admin;
+import com.cn.hxg.entity.Doctor;
+import com.cn.hxg.entity.StuAndDoc;
+import com.cn.hxg.entity.Student;
 import com.cn.hxg.restful.RestData;
 import com.cn.hxg.service.AdminService;
+import com.cn.hxg.service.DoctorService;
+import com.cn.hxg.service.StudentService;
 import com.cn.hxg.utils.MD5;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,13 +36,22 @@ public class AdminController extends BaseController {
     @Autowired
     private AdminService adminService;
 
+    @Autowired
+    private DoctorService doctorService;
+
+    @Autowired
+    private StudentService studentService;
+
     @RequestMapping("/insert")
     @ResponseBody
     @LoginRequired
-    public RestData insert(@RequestParam("username") String username, @RequestParam("password") String password,String userType) {
+    public RestData insert(StuAndDoc stuAndDoc) {
         RestData restData = new RestData();
 
-        if (StringUtils.isBlank(username) || StringUtils.isBlank(password)) {
+        String username = stuAndDoc.getUsername();
+        String password = stuAndDoc.getPassword();
+        String userType = stuAndDoc.getUserType();
+        if (StringUtils.isBlank(username) || StringUtils.isBlank(password) || StringUtils.isBlank(userType)) {
             restData.setComment("用户名或密码不能为空");
             restData.setSuccess(0);
             return restData;
@@ -55,6 +69,34 @@ public class AdminController extends BaseController {
         admin1.setRole(username);
         admin1.setUserType(userType);
         adminService.insert(admin1);
+
+        // 管理员和医生
+        if ("0".equals(userType)) {
+            Doctor doctor = new Doctor();
+            doctor.setTel(stuAndDoc.getTel());
+            doctor.setSex(stuAndDoc.getSex());
+            doctor.setEmail(stuAndDoc.getEmail());
+            doctor.setBirth(stuAndDoc.getBirth());
+            doctor.setName(stuAndDoc.getUsername());
+            doctor.setCynf(stuAndDoc.getCynf());
+
+            doctorService.insert(doctor);
+            // 学生
+        } else if ("1".equals(userType)) {
+            Student student = new Student();
+            student.setName(stuAndDoc.getUsername());
+            student.setSex(stuAndDoc.getSex());
+            student.setBirth(stuAndDoc.getBirth());
+            student.setRxsj(stuAndDoc.getRxsj());
+            student.setXz(stuAndDoc.getXz());
+            student.setBj(stuAndDoc.getBj());
+            student.setRoom(stuAndDoc.getRoom());
+            student.setTel(stuAndDoc.getTel());
+            student.setEmail(stuAndDoc.getEmail());
+
+            studentService.insert(student);
+
+        }
 
         restData.setSuccess(1);
         return restData;

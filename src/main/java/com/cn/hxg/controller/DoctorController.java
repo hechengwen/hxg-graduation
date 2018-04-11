@@ -26,7 +26,6 @@ public class DoctorController {
     @RequestMapping("/insert")
     public void insert(){
         Doctor doctor = new Doctor();
-        doctor.setBirth(new Date());
         doctor.setEmail("hangzhou@qq.com");
         doctor.setSex("man");
         doctor.setTel("17710363894");

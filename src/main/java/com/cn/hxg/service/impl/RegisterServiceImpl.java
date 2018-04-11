@@ -1,5 +1,6 @@
 package com.cn.hxg.service.impl;
 
+import com.cn.hxg.entity.RegisterData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.cn.hxg.dao.RegisterMapper;
@@ -40,5 +41,9 @@ public class RegisterServiceImpl implements RegisterService {
 
     public List<Register> getStudentRegister(String name){
         return registerMapper.getStudentRegister(name);
+    }
+
+    public List<RegisterData> getRegisterList(String serialNumber){
+        return registerMapper.getRegisterList(serialNumber);
     }
 }

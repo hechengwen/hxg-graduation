@@ -12,6 +12,16 @@
     id,stu_name,`desc`,feed_time
     </sql>
 
+    <select id="getList" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM feedback
+        WHERE 1=1
+        <if test="id != null and id != '' ">
+            AND id = ${id}
+        </if>
+        ORDER BY id DESC
+    </select>
+
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List" />
