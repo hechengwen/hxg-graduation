@@ -16,7 +16,7 @@ import com.cn.hxg.base.BaseObject;
 public class Student extends BaseObject {
 
     /** 学号 */
-    private String sno;
+    private Integer sno;
 
     /** 姓名 */
     private String name;
@@ -31,7 +31,7 @@ public class Student extends BaseObject {
     private String rxsj;
 
     /** 学制 */
-    private Integer xz;
+    private String xz;
 
     /** 系部 */
     private String xb;

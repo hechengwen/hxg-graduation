@@ -181,14 +181,14 @@ var menzhenmenu='<table width=80><!--<tr><td id=menzhen onMouseOver=overbg(menzh
 <tr><td id=menzhenjiuzhen onMouseOver=overbg(menzhenjiuzhen) onMouseOut=outbg(menzhenjiuzhen)><a href="/register/getRegisterList">门诊就诊</a></td><tr>\
 <tr><td id=menzhenshoufei onMouseOver=overbg(menzhenshoufei) onMouseOut=outbg(menzhenshoufei)><a href="/register/getRegisterSettle">门诊结算</a></td></tr>\
 </table>'
-var bingrenmenu='<table width=80><tr><td id=bingrendangan onMouseOver=overbg(bingrendangan) onMouseOut=outbg(bingrendangan)><a href=zhuyuan.jsp>住院治疗</a></td></tr>\
-<tr><td id=chuyuan onMouseOver=overbg(chuyuan) onMouseOut=outbg(chuyuan)><a href=chuyuan.jsp>出院结算</a></td></tr>\
+var bingrenmenu='<table width=80><tr><td id=bingrendangan onMouseOver=overbg(bingrendangan) onMouseOut=outbg(bingrendangan)><a href="/student/getListStudent">学生信息列表</a></td></tr>\
+<tr><td id=chuyuan onMouseOver=overbg(chuyuan) onMouseOut=outbg(chuyuan)><a href="/student/index">学生信息录入</a></td></tr>\
 </table>'
 var yaopinmenu='<table width=80><tr><td id=yaopinluru onMouseOver=overbg(yaopinluru) onMouseOut=outbg(yaopinluru)><a href="/medicine/index">药品信息录入</a></td></tr>\
 <tr><td id=yaopin onMouseOver=overbg(yaopin) onMouseOut=outbg(yaopin)><a href="/medicine/select">药品信息管理</a></td></tr>\
 </table>'
-var yishimenu='<table width=80><tr><td id=yisi onMouseOver=overbg(yishi) onMouseOut=outbg(yishi)><a href=yishi.jsp>医师信息设置</a></td></tr>\
-<tr><td id=addyishi onMouseOver=overbg(addyishi) onMouseOut=outbg(addyishi)><a href=yishi_add.jsp>医师信息录入</a></td></tr>\
+var yishimenu='<table width=80><tr><td id=yisi onMouseOver=overbg(yishi) onMouseOut=outbg(yishi)><a href="/doctor/getListDoctor">医师信息列表</a></td></tr>\
+<tr><td id=addyishi onMouseOver=overbg(addyishi) onMouseOut=outbg(addyishi)><a href="/doctor/index">医师信息录入</a></td></tr>\
 </table>'
 var querymenu='<table width=80><tr><td id=bingliQuery onMouseOver=overbg(bingliQuery) onMouseOut=outbg(bingliQuery)><a href=yishichaxun.jsp>医师查询</a></td></tr>\
 <tr><td id=bingrenxinxiQuery onMouseOver=overbg(bingrenxinxiQuery) onMouseOut=outbg(bingrenxinxiQuery)><a href=bingrenxinxi.jsp>门诊查询</a></td></tr>\

@@ -32,6 +32,12 @@
     where warden = #{warden,jdbcType=VARCHAR}
   </delete>
 
+
+    <delete id="deleteByName" parameterType="java.lang.String">
+        delete from admin
+        where role = #{name,jdbcType=VARCHAR}
+    </delete>
+
     <insert id="insert" parameterType="com.cn.hxg.entity.Admin">
     insert into admin (warden,password,role,user_type)
     values (#{warden,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},#{role,jdbcType=VARCHAR},#{userType,jdbcType=VARCHAR})

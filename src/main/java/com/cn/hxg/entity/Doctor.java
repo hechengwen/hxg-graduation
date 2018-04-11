@@ -16,7 +16,7 @@ import com.cn.hxg.base.BaseObject;
 public class Doctor extends BaseObject {
 
     /** 医生编号 */
-    private String sno;
+    private Integer sno;
 
     /** 姓名 */
     private String name;
@@ -30,11 +30,16 @@ public class Doctor extends BaseObject {
     /** 从业年份 */
     private String cynf;
 
+    /** 职称 */
+    private String positionalTitles;
+
     /** 联系电话 */
     private String tel;
 
     /** 邮箱 */
     private String email;
 
+    /** 所属科室 */
+    private String department;
 
 }

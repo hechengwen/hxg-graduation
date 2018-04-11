@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="gbk"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style type="text/css">
@@ -8,7 +8,7 @@
     }*/
 </style>
 <head>
-<title>»¶Ó­Ê¹ÓÃÒ½ÔºÒ½Îñ¹ÜÀíÏµÍ³</title>
+<title>æ¬¢è¿ä½¿ç”¨åŒ»é™¢åŒ»åŠ¡ç®¡ç†ç³»ç»Ÿ</title>
 <link href="/CSS/style.css" rel="stylesheet">
 <script src="/js/jquery-3.2.1.min.js"></script>
 </head>
@@ -45,10 +45,10 @@
                       <table width="100%"  border="0" cellpadding="0" cellspacing="0" bordercolorlight="#FFFFFF" bordercolordark="#D2E3E6">
                         <tr>
                           <td height="57"><span class="STYLE1"></span></td>
-                            <td width="9%">ÓÃ»§ÀàĞÍ£º</td>
+                            <td width="9%">ç”¨æˆ·ç±»å‹ï¼š</td>
 						 <td width="15%"> <select name="userType" id="type" >
-						 <option value="0" id="guanliyuan" >¹ÜÀíÔ± </option>
-						  <option value="1" id="yishi">Ñ§Éú
+						 <option value="0" id="guanliyuan" >ç®¡ç†å‘˜ </option>
+						  <option value="1" id="yishi">å­¦ç”Ÿ
 						  </option>
 						  </select>
 						  </td>
@@ -59,23 +59,23 @@
                         </tr>
                         <tr>
                           <td width="75%" height="37">&nbsp;</td>
-                      <td >ÓÃ&nbsp;»§&nbsp;Ãû£º</td>
+                      <td >ç”¨&nbsp;æˆ·&nbsp;åï¼š</td>
                       <td >
                         <input name="username" type="text" class="logininput" id="username" size="20">                        </td>
 
                     </tr>
                         <tr>
                           <td height="37">&nbsp;</td>
-                      <td>ÃÜ&nbsp;&nbsp;Âë£º</td>
+                      <td>å¯†&nbsp;&nbsp;ç ï¼š</td>
                       <td><input name="password" type="password" class="logininput" id="password" size="20"></td>
                       <td>&nbsp;</td>
                     </tr>
                         <tr>
                           <td height="30">&nbsp;</td>
-                          <td colspan="2" align="center"><input name="button" type="button" class="btn_grey" value="È·¶¨" onClick="check()"/>
+                          <td colspan="2" align="center"><input name="button" type="button" class="btn_grey" value="ç¡®å®š" onClick="check()"/>
                             &nbsp;
-                            <input name="Submit3" type="reset" class="btn_grey" value="ÖØÖÃ">&nbsp;
-                            <%--<input name="Submit2" type="button" class="btn_grey" value="¹Ø±Õ" onClick="window.close();"></td><td>&nbsp;</td>--%>
+                            <input name="Submit3" type="reset" class="btn_grey" value="é‡ç½®">&nbsp;
+                            <%--<input name="Submit2" type="button" class="btn_grey" value="å…³é—­" onClick="window.close();"></td><td>&nbsp;</td>--%>
                     </tr>
                         </table>
 			  </form>				   </td>
@@ -96,7 +96,7 @@
 
         </tr>
         <tr>
-        <td align="center"><h5>°æÈ¨ËùÓĞ£¬·­Â¼±Ø¾¿</h5></td>
+        <td align="center"><h5>ç‰ˆæƒæ‰€æœ‰ï¼Œç¿»å½•å¿…ç©¶</h5></td>
         </tr>
       </table></td>
   </tr>
@@ -112,26 +112,26 @@
         var sUserName = $("#username").val();
         var sPassword = $("#password").val();
         if (sUserName ==""){
-            alert("ÇëÊäÈëÓÃ»§Ãû!");
+            alert("è¯·è¾“å…¥ç”¨æˆ·å!");
             return false ;
         }
 
         if (sPassword ==""){
-            alert("ÇëÊäÈëÃÜÂë!");
+            alert("è¯·è¾“å…¥å¯†ç !");
             return false ;
         }
 
         $.ajax({
-            //¼¸¸ö²ÎÊıĞèÒª×¢ÒâÒ»ÏÂ
-            type: "POST",//·½·¨ÀàĞÍ
-            dataType: "json",//Ô¤ÆÚ·şÎñÆ÷·µ»ØµÄÊı¾İÀàĞÍ
+            //å‡ ä¸ªå‚æ•°éœ€è¦æ³¨æ„ä¸€ä¸‹
+            type: "POST",//æ–¹æ³•ç±»å‹
+            dataType: "json",//é¢„æœŸæœåŠ¡å™¨è¿”å›çš„æ•°æ®ç±»å‹
             url: "/admin/login" ,//url
             data: $('#form1').serialize(),
             success: function (result) {
-                // ¹ÜÀíÔ±
+                // ç®¡ç†å‘˜
                 if (result.success == 1 && result.data == 0) {
                     window.location.href="/admin/sysMain";
-                    // Ñ§Éú
+                    // å­¦ç”Ÿ
                 } else if (result.success == 1 && result.data == 1) {
                     window.location.href="/admin/stuMain";
                 }else if (result.success == 0) {
@@ -139,7 +139,7 @@
                 }
             },
             error : function() {
-                alert("Òì³££¡");
+                alert("å¼‚å¸¸ï¼");
             }
         });
     }

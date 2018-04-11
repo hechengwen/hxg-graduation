@@ -47,7 +47,7 @@ public class StuAndDoc extends BaseObject {
     private String rxsj;
 
     /** 学制 */
-    private Integer xz;
+    private String xz;
 
     /** 系部 */
     private String xb;

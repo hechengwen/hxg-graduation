@@ -18,6 +18,10 @@ public class AdminServiceImpl implements AdminService {
     public int deleteByPrimaryKey(String key) {
         return adminMapper.deleteByPrimaryKey(key);
     }
+    @Override
+    public int deleteByName(String name) {
+        return adminMapper.deleteByName(name);
+    }
 
     public int insert(Admin record) {
         return adminMapper.insert(record);

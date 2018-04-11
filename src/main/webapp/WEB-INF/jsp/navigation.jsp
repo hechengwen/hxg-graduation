@@ -19,12 +19,12 @@
                 }
             }
         </script>
-        <td width="66%" align="right" bgcolor="#B0690B" class="word_white"><a href="##" class="word_white">医务室简介</a> | <a
+        <td width="66%" align="right" bgcolor="#B0690B" class="word_white"><a href="/admin/sysMain" class="word_white">医务室简介</a> | <a
                 onmouseover=showmenu(event,xitongmenu) onmouseout=delayhidemenu() class="word_white"
                 style="CURSOR:hand">意见反馈管理</a> |
             <a onmouseover=showmenu(event,menzhenmenu) onmouseout=delayhidemenu() class="word_white"
                style="CURSOR:hand">门诊管理</a> | <a onmouseover=showmenu(event,bingrenmenu) onmouseout=delayhidemenu()
-                                                 style="CURSOR:hand" class="word_white">住院管理</a> | <a
+                                                 style="CURSOR:hand" class="word_white">学生管理</a> | <a
                     onmouseover=showmenu(event,yaopinmenu) onmouseout=delayhidemenu() class="word_white"
                     style="CURSOR:hand">药品管理</a> | <a onmouseover=showmenu(event,yishimenu) onmouseout=delayhidemenu()
                                                       class="word_white" style="CURSOR:hand">医师管理</a> | <a

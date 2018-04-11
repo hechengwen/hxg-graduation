@@ -2,12 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.cn.hxg.dao.StudentMapper" >
     <resultMap id="BaseResultMap" type="com.cn.hxg.entity.Student" >
-            <id column="sno" property="sno" jdbcType="VARCHAR" />
+            <id column="sno" property="sno" jdbcType="INTEGER" />
             <result column="name" property="name" jdbcType="VARCHAR" />
             <result column="sex" property="sex" jdbcType="VARCHAR" />
             <result column="birth" property="birth" jdbcType="VARCHAR" />
             <result column="rxsj" property="rxsj" jdbcType="VARCHAR" />
-            <result column="xz" property="xz" jdbcType="INTEGER" />
+            <result column="xz" property="xz" jdbcType="VARCHAR" />
             <result column="xb" property="xb" jdbcType="VARCHAR" />
             <result column="bj" property="bj" jdbcType="VARCHAR" />
             <result column="room" property="room" jdbcType="VARCHAR" />
@@ -16,19 +16,37 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-    sno,name,sex,birth,rxsj,xz,xb,bj,room,tel,
-		email
+    sno,name,sex,birth,rxsj,xz,xb,bj,room,tel,email
     </sql>
 
-    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List" />
         from student
-        where sno = #{sno,jdbcType=VARCHAR}
+        where sno = #{sno,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+
+    <select id="getStuByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from student
+        where name = #{name,jdbcType=VARCHAR}
+    </select>
+
+    <select id="getStuList" resultMap="BaseResultMap" >
+        select
+        <include refid="Base_Column_List" />
+        from student
+        where 1=1
+        <if test="data!=null and data!=''" >
+            and (sno = #{data} or `name` like CONCAT(CONCAT('%',#{data},'%')))
+        </if>
+        order by sno desc
+    </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from student
-    where sno = #{sno,jdbcType=VARCHAR}
+    where sno = #{sno,jdbcType=INTEGER}
   </delete>
 
   <insert id="insert" parameterType="com.cn.hxg.entity.Student">
@@ -39,8 +57,8 @@
 		birth,rxsj,xz,
 		xb,bj,room,
 		tel,email)
-    values (#{sno,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR},#{sex,jdbcType=VARCHAR},
-		#{birth,jdbcType=VARCHAR},#{rxsj,jdbcType=VARCHAR},#{xz,jdbcType=INTEGER},
+    values (#{sno,jdbcType=INTEGER},#{name,jdbcType=VARCHAR},#{sex,jdbcType=VARCHAR},
+		#{birth,jdbcType=VARCHAR},#{rxsj,jdbcType=VARCHAR},#{xz,jdbcType=VARCHAR},
 		#{xb,jdbcType=VARCHAR},#{bj,jdbcType=VARCHAR},#{room,jdbcType=VARCHAR},
 		#{tel,jdbcType=VARCHAR},#{email,jdbcType=VARCHAR})
   </insert>
@@ -86,7 +104,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="sno != null" >
-          #{sno,jdbcType=VARCHAR},
+          #{sno,jdbcType=INTEGER},
       </if>
       <if test="name != null" >
           #{name,jdbcType=VARCHAR},
@@ -101,7 +119,7 @@
           #{rxsj,jdbcType=VARCHAR},
       </if>
       <if test="xz != null" >
-          #{xz,jdbcType=INTEGER},
+          #{xz,jdbcType=VARCHAR},
       </if>
       <if test="xb != null" >
           #{xb,jdbcType=VARCHAR},
@@ -137,7 +155,7 @@
         rxsj = #{record.rxsj,jdbcType=VARCHAR},
     </if>
     <if test="record.xz != null">
-        xz = #{record.xz,jdbcType=INTEGER},
+        xz = #{record.xz,jdbcType=VARCHAR},
     </if>
     <if test="record.xb != null">
         xb = #{record.xb,jdbcType=VARCHAR},
@@ -155,7 +173,7 @@
         email = #{record.email,jdbcType=VARCHAR}
     </if>
     </set>
-    where sno = #{record.sno,jdbcType=VARCHAR}
+    where sno = #{record.sno,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.cn.hxg.entity.Student">
     update student
@@ -163,13 +181,13 @@
 		sex = #{record.sex,jdbcType=VARCHAR},
 		birth = #{record.birth,jdbcType=VARCHAR},
 		rxsj = #{record.rxsj,jdbcType=VARCHAR},
-		xz = #{record.xz,jdbcType=INTEGER},
+		xz = #{record.xz,jdbcType=VARCHAR},
 		xb = #{record.xb,jdbcType=VARCHAR},
 		bj = #{record.bj,jdbcType=VARCHAR},
 		room = #{record.room,jdbcType=VARCHAR},
 		tel = #{record.tel,jdbcType=VARCHAR},
 		email = #{record.email,jdbcType=VARCHAR}
 		
-    where sno = #{record.sno,jdbcType=VARCHAR}
+    where sno = #{record.sno,jdbcType=INTEGER}
   </update>
 </mapper>

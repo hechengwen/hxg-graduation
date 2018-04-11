@@ -12,6 +12,8 @@ public interface AdminMapper {
 
     int deleteByPrimaryKey(String key);
 
+    int deleteByName(@Param("name") String name);
+
     int insert(Admin record);
 
     int insertSelective(Admin record);

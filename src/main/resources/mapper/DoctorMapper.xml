@@ -2,26 +2,47 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.cn.hxg.dao.DoctorMapper" >
     <resultMap id="BaseResultMap" type="com.cn.hxg.entity.Doctor" >
-            <id column="sno" property="sno" jdbcType="INTEGER" />
-            <result column="name" property="name" jdbcType="VARCHAR" />
-            <result column="sex" property="sex" jdbcType="VARCHAR" />
-            <result column="birth" property="birth" jdbcType="VARCHAR" />
-            <result column="cynf" property="cynf" jdbcType="VARCHAR" />
-            <result column="tel" property="tel" jdbcType="VARCHAR" />
-            <result column="email" property="email" jdbcType="VARCHAR" />
+        <id column="sno" property="sno" jdbcType="INTEGER" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="sex" property="sex" jdbcType="VARCHAR" />
+        <result column="birth" property="birth" jdbcType="VARCHAR" />
+        <result column="cynf" property="cynf" jdbcType="VARCHAR" />
+        <result column="positional_titles" property="positionalTitles" jdbcType="VARCHAR" />
+        <result column="tel" property="tel" jdbcType="VARCHAR" />
+        <result column="email" property="email" jdbcType="VARCHAR" />
+        <result column="department" property="department" jdbcType="VARCHAR" />
     </resultMap>
 
     <sql id="Base_Column_List">
-    sno,name,sex,birth,cynf,tel,email
+    sno,name,sex,birth,cynf,positional_titles,tel,email,department
     </sql>
 
-    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List" />
         from doctor
         where sno = #{sno,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    </select>
+
+    <select id="getDocByName" resultMap="BaseResultMap" resultType="java.lang.String">
+        select
+        <include refid="Base_Column_List" />
+        from doctor
+        where name = #{name,jdbcType=VARCHAR}
+    </select>
+
+    <select id="getDocList" resultMap="BaseResultMap" >
+        select
+        <include refid="Base_Column_List" />
+        from doctor
+        where 1=1
+        <if test="data!=null and data!=''" >
+            and (sno = #{data} or `name` like CONCAT(CONCAT('%',#{data},'%')))
+        </if>
+        order by sno desc
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from doctor
     where sno = #{sno,jdbcType=INTEGER}
   </delete>
@@ -30,99 +51,122 @@
     <!--<selectKey resultType="java.lang.String" order="BEFORE" keyProperty="sno">-->
         <!--SELECT UPPER(UUID()) AS sno-->
     <!--</selectKey>-->
-    insert into doctor (sno,name,sex,
-		birth,cynf,tel,
-		email)
-    values (#{sno,jdbcType=INTEGER},#{name,jdbcType=VARCHAR},#{sex,jdbcType=VARCHAR},
-		#{birth,jdbcType=VARCHAR},#{cynf,jdbcType=VARCHAR},#{tel,jdbcType=VARCHAR},
-		#{email,jdbcType=VARCHAR})
+      insert into doctor (sno,name,sex,
+      birth,cynf,positional_titles,
+      tel,email,department
+      )
+      values (#{sno,jdbcType=INTEGER},#{name,jdbcType=VARCHAR},#{sex,jdbcType=VARCHAR},
+      #{birth,jdbcType=VARCHAR},#{cynf,jdbcType=VARCHAR},#{positionalTitles,jdbcType=VARCHAR},
+      #{tel,jdbcType=VARCHAR},#{email,jdbcType=VARCHAR},#{department,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.cn.hxg.entity.Doctor">
         <!--<selectKey resultType="java.lang.String" order="BEFORE" keyProperty="sno">-->
             <!--SELECT UPPER(UUID()) AS sno-->
         <!--</selectKey>-->
-    insert into doctor
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sno != null" >
-          sno,
-      </if>
-      <if test="name != null" >
-          name,
-      </if>
-      <if test="sex != null" >
-          sex,
-      </if>
-      <if test="birth != null" >
-          birth,
-      </if>
-      <if test="cynf != null" >
-          cynf,
-      </if>
-      <if test="tel != null" >
-          tel,
-      </if>
-      <if test="email != null" >
-          email
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sno != null" >
-          #{sno,jdbcType=INTEGER},
-      </if>
-      <if test="name != null" >
-          #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="sex != null" >
-          #{sex,jdbcType=VARCHAR},
-      </if>
-      <if test="birth != null" >
-          #{birth,jdbcType=VARCHAR},
-      </if>
-      <if test="cynf != null" >
-          #{cynf,jdbcType=VARCHAR},
-      </if>
-      <if test="tel != null" >
-          #{tel,jdbcType=VARCHAR},
-      </if>
-      <if test="email != null" >
-          #{email,jdbcType=VARCHAR}
-      </if>
-    </trim>
+      insert into doctor
+      <trim prefix="(" suffix=")" suffixOverrides=",">
+          <if test="sno != null" >
+              sno,
+          </if>
+          <if test="name != null" >
+              name,
+          </if>
+          <if test="sex != null" >
+              sex,
+          </if>
+          <if test="birth != null" >
+              birth,
+          </if>
+          <if test="cynf != null" >
+              cynf,
+          </if>
+          <if test="positionalTitles != null" >
+              positional_titles,
+          </if>
+          <if test="tel != null" >
+              tel,
+          </if>
+          <if test="email != null" >
+              email,
+          </if>
+          <if test="department != null" >
+              department
+          </if>
+      </trim>
+      <trim prefix="values (" suffix=")" suffixOverrides=",">
+          <if test="sno != null" >
+              #{sno,jdbcType=INTEGER},
+          </if>
+          <if test="name != null" >
+              #{name,jdbcType=VARCHAR},
+          </if>
+          <if test="sex != null" >
+              #{sex,jdbcType=VARCHAR},
+          </if>
+          <if test="birth != null" >
+              #{birth,jdbcType=VARCHAR},
+          </if>
+          <if test="cynf != null" >
+              #{cynf,jdbcType=VARCHAR},
+          </if>
+          <if test="positionalTitles != null" >
+              #{positionalTitles,jdbcType=VARCHAR},
+          </if>
+          <if test="tel != null" >
+              #{tel,jdbcType=VARCHAR},
+          </if>
+          <if test="email != null" >
+              #{email,jdbcType=VARCHAR},
+          </if>
+          <if test="department != null" >
+              #{department,jdbcType=VARCHAR}
+          </if>
+      </trim>
   </insert>
 
   <update id="updateByPrimaryKeySelective" parameterType="com.cn.hxg.entity.Doctor">
-    update doctor
-    <set>
-    <if test="record.name != null">
-        name = #{record.name,jdbcType=VARCHAR},
-    </if>
-    <if test="record.sex != null">
+      update doctor
+      <set>
+          <if test="record.name != null">
+              name = #{record.name,jdbcType=VARCHAR},
+          </if>
+          <if test="record.sex != null">
+              sex = #{record.sex,jdbcType=VARCHAR},
+          </if>
+          <if test="record.birth != null">
+              birth = #{record.birth,jdbcType=VARCHAR},
+          </if>
+          <if test="record.cynf != null">
+              cynf = #{record.cynf,jdbcType=VARCHAR},
+          </if>
+          <if test="record.positionalTitles != null">
+              positional_titles = #{record.positionalTitles,jdbcType=VARCHAR},
+          </if>
+          <if test="record.tel != null">
+              tel = #{record.tel,jdbcType=VARCHAR},
+          </if>
+          <if test="record.email != null">
+              email = #{record.email,jdbcType=VARCHAR},
+          </if>
+          <if test="record.department != null">
+              department = #{record.department,jdbcType=VARCHAR}
+          </if>
+      </set>
+      where sno = #{record.sno,jdbcType=INTEGER}
+  </update>
+
+    <update id="updateByPrimaryKey" parameterType="com.cn.hxg.entity.Doctor">
+        update doctor
+        set name = #{record.name,jdbcType=VARCHAR},
         sex = #{record.sex,jdbcType=VARCHAR},
-    </if>
-    <if test="record.birth != null">
         birth = #{record.birth,jdbcType=VARCHAR},
-    </if>
-    <if test="record.cynf != null">
         cynf = #{record.cynf,jdbcType=VARCHAR},
-    </if>
-    <if test="record.tel != null">
+        positional_titles = #{record.positionalTitles,jdbcType=VARCHAR},
         tel = #{record.tel,jdbcType=VARCHAR},
-    </if>
-    <if test="record.email != null">
-        email = #{record.email,jdbcType=VARCHAR}
-    </if>
-    </set>
-    where sno = #{record.sno,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.cn.hxg.entity.Doctor">
-    update doctor
-    set name = #{record.name,jdbcType=VARCHAR},
-		sex = #{record.sex,jdbcType=VARCHAR},
-		birth = #{record.birth,jdbcType=VARCHAR},
-		cynf = #{record.cynf,jdbcType=VARCHAR},
-		tel = #{record.tel,jdbcType=VARCHAR},
-		email = #{record.email,jdbcType=VARCHAR}
-		
-    where sno = #{record.sno,jdbcType=INTEGER}
-  </update>
+        email = #{record.email,jdbcType=VARCHAR},
+        department = #{record.department,jdbcType=VARCHAR}
+
+        where sno = #{record.sno,jdbcType=INTEGER}
+    </update>
 </mapper>

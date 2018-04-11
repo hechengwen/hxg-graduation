@@ -6,6 +6,8 @@ public interface AdminService {
 
     int deleteByPrimaryKey(String key);
 
+    int deleteByName(String name);
+
     int insert(Admin record);
 
     int insertSelective(Admin record);
