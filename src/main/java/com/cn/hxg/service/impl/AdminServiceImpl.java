@@ -15,7 +15,7 @@ public class AdminServiceImpl implements AdminService {
     @Autowired
     private AdminMapper adminMapper;
 
-    public int deleteByPrimaryKey(String key) {
+    public int deleteByPrimaryKey(Integer key) {
         return adminMapper.deleteByPrimaryKey(key);
     }
     @Override
@@ -31,7 +31,7 @@ public class AdminServiceImpl implements AdminService {
         return adminMapper.insertSelective(record);
     }
 
-    public Admin selectByPrimaryKey(String key) {
+    public Admin selectByPrimaryKey(Integer key) {
         return adminMapper.selectByPrimaryKey(key);
     }
 

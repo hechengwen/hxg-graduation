@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="gbk" import="java.sql.*" errorPage="" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <% String error=(String)session.getAttribute("error"); %>
 <html>
 <head>
@@ -8,6 +8,6 @@
 
 <body>
 <%=error %>
-<input type="button" value="·µ»Ø" onClick="window.location.href='index.jsp'">
+<input type="button" value="è¿”å›ž" onClick="window.location.href='index.jsp'">
 </body>
 </html>

@@ -9,7 +9,7 @@
 <table width="778" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#0000FF">
     <tr bgcolor="#B0690B">
         <td width="3%" height="27">&nbsp;</td>
-        <td width="29%">
+        <td width="20%">
             <div id="bgclock" class="word_white"></div>
         </td>
         <script language="javascript">
@@ -19,7 +19,7 @@
                 }
             }
         </script>
-        <td width="66%" align="right" bgcolor="#B0690B" class="word_white"><a href="/admin/sysMain" class="word_white">医务室简介</a> | <a
+        <td width="79%" align="right" bgcolor="#B0690B" class="word_white"><a href="/admin/sysMain" class="word_white">医务室简介</a> | <a
                 onmouseover=showmenu(event,xitongmenu) onmouseout=delayhidemenu() class="word_white"
                 style="CURSOR:hand">意见反馈管理</a> |
             <a onmouseover=showmenu(event,menzhenmenu) onmouseout=delayhidemenu() class="word_white"
@@ -29,7 +29,8 @@
                     style="CURSOR:hand">药品管理</a> | <a onmouseover=showmenu(event,yishimenu) onmouseout=delayhidemenu()
                                                       class="word_white" style="CURSOR:hand">医师管理</a> | <a
                     onmouseover=showmenu(event,querymenu) onmouseout=delayhidemenu() class="word_white"
-                    style="CURSOR:hand">系统查询</a> | <a href="#" onClick="quit()" class="word_white">注销登录</a></td>
+                    style="CURSOR:hand">系统管理</a> | <a onmouseover=showmenu(event,gerenzhongxin) onmouseout=delayhidemenu()
+                                                      class="word_white" style="CURSOR:hand">个人中心</a> | <a href="#" onClick="quit()" class="word_white">注销登录</a></td>
         <td width="2%" bgcolor="#B0690B">&nbsp;</td>
     </tr>
     <tr bgcolor="#B0690B">

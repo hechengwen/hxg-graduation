@@ -12,14 +12,14 @@
     warden,password,role,user_type
     </sql>
 
-    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from admin
-        where warden = #{warden,jdbcType=VARCHAR}
+        where warden = #{warden,jdbcType=INTEGER}
     </select>
 
-    <select id="selectByRole" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <select id="selectByRole" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from admin
@@ -27,9 +27,9 @@
         AND user_type = #{userType,jdbcType=VARCHAR}
     </select>
 
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from admin
-    where warden = #{warden,jdbcType=VARCHAR}
+    where warden = #{warden,jdbcType=INTEGER}
   </delete>
 
 
@@ -40,7 +40,7 @@
 
     <insert id="insert" parameterType="com.cn.hxg.entity.Admin">
     insert into admin (warden,password,role,user_type)
-    values (#{warden,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},#{role,jdbcType=VARCHAR},#{userType,jdbcType=VARCHAR})
+    values (#{warden,jdbcType=INTEGER},#{password,jdbcType=VARCHAR},#{role,jdbcType=VARCHAR},#{userType,jdbcType=VARCHAR})
   </insert>
     <insert id="insertSelective" parameterType="com.cn.hxg.entity.Admin">
         insert into admin
@@ -57,7 +57,7 @@
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="warden != null">
-                #{warden,jdbcType=VARCHAR},
+                #{warden,jdbcType=INTEGER},
             </if>
             <if test="password != null">
                 #{password,jdbcType=VARCHAR},
@@ -78,13 +78,13 @@
                 role = #{record.role,jdbcType=VARCHAR}
             </if>
         </set>
-        where warden = #{record.warden,jdbcType=VARCHAR}
+        where warden = #{record.warden,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.cn.hxg.entity.Admin">
     update admin
     set password = #{record.password,jdbcType=VARCHAR},
 		role = #{record.role,jdbcType=VARCHAR}
 		
-    where warden = #{record.warden,jdbcType=VARCHAR}
+    where warden = #{record.warden,jdbcType=INTEGER}
   </update>
 </mapper>

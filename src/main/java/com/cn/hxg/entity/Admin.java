@@ -15,7 +15,7 @@ import com.cn.hxg.base.BaseObject;
 public class Admin extends BaseObject {
 
     /** 员工号 */
-    private String warden;
+    private Integer warden;
 
     /** 密码 */
     private String password;

@@ -14,6 +14,7 @@ import com.cn.hxg.utils.MD5;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -42,6 +43,72 @@ public class AdminController extends BaseController {
     @Autowired
     private StudentService studentService;
 
+    @RequestMapping("persionalInfo")
+    @LoginRequired
+    public ModelAndView persionalInfo() {
+        ModelAndView modelAndView = new ModelAndView("gerenxinxi");
+        Admin admin = (Admin) getRequest().getSession().getAttribute("userInfo");
+
+        Doctor doctor = doctorService.getDocByName(admin.getRole());
+        modelAndView.addObject("doctor", doctor);
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "modifyIndex")
+    @LoginRequired
+    public ModelAndView modifyIndex() {
+        ModelAndView modelAndView = new ModelAndView("modify_psd");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "oldPassword")
+    @LoginRequired
+    @ResponseBody
+    public RestData oldPasswordCheck(String oldPassword) {
+        RestData restData = new RestData();
+        Admin admin = (Admin) getRequest().getSession().getAttribute("userInfo");
+
+        if (!MD5.MD5(oldPassword.trim()).equals(admin.getPassword())) {
+            return restData;
+        }
+        restData.setSuccess(1);
+        return restData;
+    }
+
+    @RequestMapping("modifyPassword")
+    @ResponseBody
+    @LoginRequired
+    public RestData modifyPassword(String newPassword,String again) {
+        RestData restData = new RestData();
+
+        if (StringUtils.isEmpty(newPassword) || StringUtils.isEmpty(again)) {
+            restData.setComment("新密码不能为空");
+            return restData;
+        }
+
+        if (!newPassword.equals(again)) {
+            restData.setComment("两次密码输入不一致");
+            return restData;
+        }
+
+        Admin admin = (Admin) getRequest().getSession().getAttribute("userInfo");
+
+        if (MD5.MD5(newPassword).equals(admin.getPassword())) {
+            restData.setComment("新密码不能与老密码相同");
+            return restData;
+        }
+
+        admin.setPassword(MD5.MD5(newPassword));
+
+        adminService.updateByPrimaryKeySelective(admin);
+
+        // 修改密码后退出登录
+        getRequest().getSession().invalidate();
+
+        restData.setSuccess(1);
+        return restData;
+    }
+
     @RequestMapping("/insert")
     @ResponseBody
     @LoginRequired
@@ -57,7 +124,7 @@ public class AdminController extends BaseController {
             return restData;
         }
 
-        Admin admin = adminService.selectByRole(username,userType);
+        Admin admin = adminService.selectByRole(username, userType);
         if (admin != null) {
             restData.setComment("用户已经存在");
             restData.setSuccess(0);
@@ -123,7 +190,7 @@ public class AdminController extends BaseController {
             return restData;
         }
 
-        Admin admin = adminService.selectByRole(username,userType);
+        Admin admin = adminService.selectByRole(username, userType);
 
         if (admin == null) {
             restData.setComment("用户名不存在");

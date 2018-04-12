@@ -4,7 +4,7 @@ import com.cn.hxg.entity.Admin;
 
 public interface AdminService {
 
-    int deleteByPrimaryKey(String key);
+    int deleteByPrimaryKey(Integer key);
 
     int deleteByName(String name);
 
@@ -12,7 +12,7 @@ public interface AdminService {
 
     int insertSelective(Admin record);
 
-    Admin selectByPrimaryKey(String key);
+    Admin selectByPrimaryKey(Integer key);
 
     int updateByPrimaryKeySelective(Admin record);
 

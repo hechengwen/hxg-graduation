@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface AdminMapper {
 
-    int deleteByPrimaryKey(String key);
+    int deleteByPrimaryKey(Integer key);
 
     int deleteByName(@Param("name") String name);
 
@@ -18,7 +18,7 @@ public interface AdminMapper {
 
     int insertSelective(Admin record);
 
-    Admin selectByPrimaryKey(String key);
+    Admin selectByPrimaryKey(Integer key);
 
     int updateByPrimaryKeySelective(@Param("record") Admin record);
 

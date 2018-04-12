@@ -196,6 +196,6 @@ var querymenu='<table width=80><tr><td id=bingliQuery onMouseOver=overbg(bingliQ
 <tr><td id=yaopinxinxiQuery onMouseOver=overbg(yaopinxinxiQuery) onMouseOut=outbg(yaopinxinxiQuery)><a href=yaopinxinxi.jsp>药品查询</a></td></tr>\
 <tr><td id=yaopinqixianQuery onMouseOver=overbg(yaopinqixianQuery) onMouseOut=outbg(yaopinqixianQuery)><a href=yaopinqixian.jsp>药品过期查询</a></td></tr>\
 </table>'
-var gerenzhongxin='<table width=80><tr><td id=yisi onMouseOver=overbg(yishi) onMouseOut=outbg(yishi)><a href=gerenzhongxin.jsp>查看个人信息</a></td></tr>\
-<tr><td id=addyishi onMouseOver=overbg(addyishi) onMouseOut=outbg(addyishi)><a href=yishi_xiugai.jsp>修改个人信息</a></td></tr>\
+var gerenzhongxin='<table width=80><tr><td id=yisi onMouseOver=overbg(yishi) onMouseOut=outbg(yishi)><a href="/admin/persionalInfo">查看个人信息</a></td></tr>\
+<tr><td id=addyishi onMouseOver=overbg(addyishi) onMouseOut=outbg(addyishi)><a href="/admin/modifyIndex">修改密码</a></td></tr>\
 </table>'

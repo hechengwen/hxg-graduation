@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=gb2312"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
 
 <meta http-equiv="Content-Type" content="text/html; charset=gbk">
 <script src="/js/onclock.JS"></script>
@@ -12,13 +12,13 @@
         <td width="29%"><div id="bgclock" class="word_white"></div></td>
 		<script language="javascript">
 			function quit(){
-				if(confirm("ÕæµÄÒªÍË³öÏµÍ³Âğ?")){
+				if(confirm("çœŸçš„è¦é€€å‡ºç³»ç»Ÿå—?")){
 					window.location.href="/admin/logout";
 				}
 			}
 		</script>
-        <td width="80%" align="right" bgcolor="#B0690B" class="word_white"><a href="/admin/stuMain" class="word_white">±¾Ôº¼ò½é</a> |
-       <a href="/register/index" class="word_white" >Ô¤Ô¼¹ÒºÅ</a> | <a  href="/feedback/index" class="word_white">Òâ¼û·´À¡</a> | <a href="#" onClick="quit()" class="word_white">ÏµÍ³ÍË³ö</a></td>
+        <td width="80%" align="right" bgcolor="#B0690B" class="word_white"><a href="/admin/stuMain" class="word_white">æœ¬é™¢ç®€ä»‹</a> |
+       <a href="/register/index" class="word_white" >é¢„çº¦æŒ‚å·</a> | <a  href="/feedback/index" class="word_white">æ„è§åé¦ˆ</a> | <a href="#" onClick="quit()" class="word_white">ç³»ç»Ÿé€€å‡º</a></td>
         <td width="2%" bgcolor="#B0690B">&nbsp;</td>
   </tr>
       <tr bgcolor="#B0690B">

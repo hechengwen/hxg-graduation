@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="gbk"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
 
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 <table width="778" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -12,7 +12,7 @@
     </table>
       <table width="93%" height="79"  border="0" cellpadding="0" cellspacing="0">
         <tr>
-          <td height="50" align="right" valign="bottom" ><h5>当前登录用户：${g_name}</h5></td>
+          <td height="50" align="right" valign="bottom" ><h5>褰撳墠鐧诲綍鐢ㄦ埛锛�${g_name}</h5></td>
         </tr>
     </table></td>
   </tr>

@@ -1,12 +1,10 @@
 package com.cn.hxg.entity;
 
-import java.util.Date;
+import com.cn.hxg.base.BaseObject;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.EqualsAndHashCode;
-
-import com.cn.hxg.base.BaseObject;
+import lombok.NoArgsConstructor;
 
 
 @Data
