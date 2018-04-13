@@ -60,7 +60,7 @@
                                                                                 <td width="15%"><select name="userType"
                                                                                                         id="type">
                                                                                     <option value="0" id="guanliyuan" >
-                                                                                        管理员
+                                                                                        医生
                                                                                     </option>
                                                                                     <option value="1" id="yishi">学生
                                                                                     </option>

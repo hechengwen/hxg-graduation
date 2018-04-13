@@ -36,7 +36,7 @@
         FROM register AS r LEFT JOIN student AS s ON r.name = s.name
         WHERE 1=1
         <if test="serialNumber != null and serialNumber != ''">
-            AND r.serial_number = ${serialNumber}
+            AND r.serial_number = #{serialNumber}
         </if>
         ORDER BY r.serial_number DESC
     </select>
