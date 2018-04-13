@@ -22,6 +22,13 @@ public class LoginController extends BaseController{
         if (admin == null) {
             return "index";
         }
-        return "redirect:/admin/stuMain";
+        String redirect = "";
+        String userType = admin.getUserType();
+        if (userType.equals("0")) {
+            redirect = "redirect:/admin/sysMain";
+        } else if (userType.equals("1")) {
+            redirect = "redirect:/admin/stuMain";
+        }
+        return redirect;
     }
 }
