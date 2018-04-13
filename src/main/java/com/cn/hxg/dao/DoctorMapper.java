@@ -26,4 +26,6 @@ public interface DoctorMapper {
 
     List<Doctor> getDocList(@Param("data")String data);
 
+    List<Doctor> getDocByDep(@Param("department")String department);
+
 }

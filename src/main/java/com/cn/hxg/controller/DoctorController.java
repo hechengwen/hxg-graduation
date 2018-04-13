@@ -99,5 +99,16 @@ public class DoctorController extends BaseController{
         return new RestData(1,null,null);
     }
 
+    @RequestMapping("/getDocByDep")
+    @ResponseBody
+    @LoginRequired
+    public RestData getDocByDep(String department) {
+        RestData restData = new RestData();
+        List<Doctor> doctors = doctorService.getDocByDep(department);
+        restData.setData(doctors);
+        restData.setSuccess(1);
+        return restData;
+    }
+
 
 }

@@ -1,14 +1,68 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
     <title>医院医务管理系统</title>
     <link href="/CSS/style.css" rel="stylesheet">
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/layer/layer.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <%  request.setCharacterEncoding("UTF-8");
+    <% request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
     %>
+    <script language="JavaScript">
+        $(document).ready(function () {
+            $("#registeredProject").change(function () {
+                var val = $('#registeredProject option:selected').val();//获取当前选中的值
+                if (val == '') {
+                    $("#doctor option:not(:first)").remove();//清空doctor
+                    return;
+                }
+                $.ajax({
+                    url: "/doctor/getDocByDep?department="+val,
+                    async: true,
+                    type: 'GET',
+                    contentType: "application/json",
+                    dataType: "json",
+                    success: function (data) {
+                        $.each(data.data, function (k, p) {
+                            $('#doctor').append('<option value="' + p.name + '">' + p.name + '</option>');
+                        });
+                    },
+                    error: function () {
+                        layer.msg("异常！");
+                    }
+                });
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        function check() {
+            $.ajax({
+                //几个参数需要注意一下
+                type: "POST",//方法类型
+                dataType: "json",//预期服务器返回的数据类型
+                url: "/register/insert",//url
+                data: $('#form1').serialize(),
+                success: function (result) {
+                    if (result.success == 1) {
+                        layer.msg("预约成功", {time: 1000}, function () {
+                            window.location.href = "/";
+                        });
+                    } else if (result.success == 0) {
+                        layer.msg(result.comment, {time: 2000});
+                        return;
+                    }
+                },
+                error: function () {
+                    layer.msg("异常！");
+                }
+            });
+        }
+
+    </script>
 </head>
 
 <body onLoad="clockon(bgclock)">
@@ -25,7 +79,7 @@
                 <tr>
                     <td height="417" align="center" valign="top" style="padding:5px;">
 
-                        <form name="form1" method="post" action="/register/insert">
+                        <form name="form1" id="form1" method="post" action="">
                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <tr>
                                     <td height="47" background="/Images/main_hospital.jpg">&nbsp;</td>
@@ -42,23 +96,6 @@
                                                            bordercolor="#FFFFFF" bordercolorlight="#FFFFFF"
                                                            bordercolordark="#F6B83B" bgcolor="#FFFFFF">
 
-                                                        <%-- <tr>
-                                                         <td align="center">挂号人身份证号码：</td>
-                                                         <td width="427" height="39"><input name="m_shenfenid" type="text" id="m_shenfenid"/>请连接好pos终端机<div id="div1" style="display: inline"></div></td>
-                                                         </tr>
-                                                       <tr>
-                                                        <td align="center">挂号人名：</td>
-                                                        <td width="427" height="39"><input name="m_name" type="text" id="m_name">
-                                                          * <div id="div2" style="display: inline"></div></td>
-                                                      </tr>--%>
-
-                                                      <tr>
-                                                        <td align="center">性别：</td>
-                                                        <td height="39" width="10"><select name="m_sex" id="m_sex" >
-                                                            <option value="男">男</option>
-                                                            <option value="女">女</option>
-                                                          </select>          </td>
-                                                      </tr>
                                                         <tr>
                                                             <td align="center">挂号科室：</td>
                                                             <td height="39">
@@ -92,25 +129,25 @@
                                                             <td height="39">
                                                                 <select name="doctor" id="doctor">
                                                                     <option value="">--请选择医师--</option>
-                                                                    <option value="何承文">何承文</option>
-                                                                    <option value="胡小刚">胡小刚</option>
-                                                                    <option value="黄亚鹏">黄亚鹏</option>
-                                                                    <option value="戴建明">戴建明</option>
+                                                                    <%--<c:forEach items="${doctors}" var="doctor">
+                                                                        <option value="${doctor.name}" >${doctor.name}</option>
+                                                                    </c:forEach>--%>
                                                                 </select>
                                                             </td>
                                                         </tr>
 
                                                         <tr>
                                                             <td align="center">挂号费：</td>
-                                                            <td height="39"><input name="cost" type="text" readonly="readonly" id="cost"
+                                                            <td height="39"><input name="cost" type="text"
+                                                                                   readonly="readonly" id="cost"
                                                                                    value="5.00" size="8">
                                                                 (元)<input name="m_yishiid" id="m_yishiid" type="hidden"
                                                                           value=""/></td>
 
                                                         <tr>
                                                             <td align="center">&nbsp;</td>
-                                                            <td><input name="Submit" type="submit" class="btn_grey"
-                                                                       value="保存">
+                                                            <td><input name="Submit" type="button" class="btn_grey"
+                                                                       value="保存" onclick="check()">
                                                                 &nbsp;
                                                                 <input name="Submit2" type="button" class="btn_grey"
                                                                        value="返回" onClick="history.back()">

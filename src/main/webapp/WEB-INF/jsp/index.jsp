@@ -11,6 +11,7 @@
     <title>欢迎使用医院医务管理系统</title>
     <link href="/CSS/style.css" rel="stylesheet">
     <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/layer/layer.js"></script>
     <link rel="stylesheet" type="text/css" href="/CSS/login.css">
 </head>
 <body>
@@ -55,10 +56,10 @@
                                                                             <tr>
                                                                                 <td height="57"><span
                                                                                         class="STYLE1"></span></td>
-                                                                                <td width="9%">用户类型：</td>
+                                                                                <td width="12%" style="font-size: 13pt;">用户类型：</td>
                                                                                 <td width="15%"><select name="userType"
                                                                                                         id="type">
-                                                                                    <option value="0" id="guanliyuan">
+                                                                                    <option value="0" id="guanliyuan" >
                                                                                         管理员
                                                                                     </option>
                                                                                     <option value="1" id="yishi">学生
@@ -74,7 +75,7 @@
                                                                             </tr>
                                                                             <tr>
                                                                                 <td width="75%" height="37">&nbsp;</td>
-                                                                                <td>用&nbsp;户&nbsp;名：</td>
+                                                                                <td style="font-size: 13pt;">用&nbsp;户&nbsp;名：</td>
                                                                                 <td>
                                                                                     <input name="username" type="text"
                                                                                            class="logininput"
@@ -83,7 +84,7 @@
                                                                             </tr>
                                                                             <tr>
                                                                                 <td height="37">&nbsp;</td>
-                                                                                <td>密&nbsp;&nbsp;码：</td>
+                                                                                <td style="font-size: 13pt;">密&nbsp;&nbsp;码：</td>
                                                                                 <td><input name="password"
                                                                                            type="password"
                                                                                            class="logininput"
@@ -92,13 +93,10 @@
                                                                             </tr>
                                                                             <tr>
                                                                                 <td height="30">&nbsp;</td>
-                                                                                <td colspan="2" align="center"><button
-                                                                                        name="button" type="button"
-                                                                                        value="登录"
-                                                                                        onClick="check()">登录</button>
-                                                                                    &nbsp;
-
-                                                                                    <%--<input name="Submit2" type="button" class="btn_grey" value="关闭" onClick="window.close();"></td><td>&nbsp;</td>--%>
+                                                                                <td colspan="2" align="center">
+                                                                                    <button name="button" type="button" value="登录" onClick="check()">登录</button>
+                                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                                    <button name="button" type="button" onClick="register()">注册</button>
                                                                             </tr>
                                                                         </table>
                                                                     </form>
@@ -136,16 +134,20 @@
 </body>
 
 <script language="javascript">
+
+    function register() {
+        window.location.href="/admin/regIndex";
+    }
     function check() {
         var sUserName = $("#username").val();
         var sPassword = $("#password").val();
         if (sUserName == "") {
-            alert("请输入用户名!");
+            layer.msg("请输入用户名!",{time:1000});
             return false;
         }
 
         if (sPassword == "") {
-            alert("请输入密码!");
+            layer.msg("请输入密码!",{time:1000});
             return false;
         }
 
@@ -163,11 +165,11 @@
                 } else if (result.success == 1 && result.data == 1) {
                     window.location.href = "/admin/stuMain";
                 } else if (result.success == 0) {
-                    alert(result.comment);
+                    layer.msg(result.comment,{time:1000});
                 }
             },
             error: function () {
-                alert("异常！");
+                layer.msg("异常！");
             }
         });
     }

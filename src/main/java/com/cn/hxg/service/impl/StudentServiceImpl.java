@@ -62,7 +62,7 @@ public class StudentServiceImpl implements StudentService {
         Admin old = adminService.selectByRole(student.getName(),"1");
 
         if (old != null) {
-            throw new Exception("admin 中已经存在该用户");
+            throw new RuntimeException("admin 中已经存在该用户");
         }
 
         Admin admin = new Admin();
@@ -87,7 +87,7 @@ public class StudentServiceImpl implements StudentService {
         Admin admin = adminService.selectByRole(student.getName(),"1");
 
         if (admin == null) {
-            throw new Exception("admin 中不存在该用户，删除失败");
+            throw new RuntimeException("admin 中不存在该用户，删除失败");
         }
 
         adminService.deleteByName(student.getName());

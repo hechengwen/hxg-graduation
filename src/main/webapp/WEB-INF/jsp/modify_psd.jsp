@@ -5,6 +5,7 @@
     <title>医院医务管理系统</title>
     <link href="/CSS/style.css" rel="stylesheet">
     <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/layer/layer.js"></script>
 </head>
 <body onLoad="clockon(bgclock)">
 <%@include file="banner.jsp" %>
@@ -95,10 +96,11 @@
             data: $('#form1').serialize(),
             success: function (result) {
                 if (result.success == 1) {
-                    alert("密码修改成功，请重新登陆");
-                    window.location.href = "/";
+                    layer.msg("密码修改成功，请重新登陆",{time:1000},function () {
+                        window.location.href = "/";
+                    });
                 } else if (result.success == 0) {
-                    alert(result.comment);
+                    layer.msg(result.comment);
                     return;
                 }
             },

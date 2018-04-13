@@ -23,6 +23,8 @@ public interface DoctorService {
 
     List<Doctor> getDocList(String data);
 
+    List<Doctor> getDocByDep(String department);
+
     RestData saveUser(Doctor doctor) throws Exception;
 
     RestData delUser(Doctor doctor) throws Exception;

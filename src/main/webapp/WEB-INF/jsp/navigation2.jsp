@@ -11,11 +11,11 @@
         <td width="3%" height="27">&nbsp;</td>
         <td width="29%"><div id="bgclock" class="word_white"></div></td>
 		<script language="javascript">
-			function quit(){
-				if(confirm("真的要退出系统吗?")){
-					window.location.href="/admin/logout";
-				}
-			}
+            function quit() {
+                layer.confirm("确定要退出系统吗?", {btn: ['确定', '取消']},function () {
+                    window.location.href = "/admin/logout";
+                });
+            }
 		</script>
         <td width="80%" align="right" bgcolor="#B0690B" class="word_white"><a href="/admin/stuMain" class="word_white">本院简介</a> |
        <a href="/register/index" class="word_white" >预约挂号</a> | <a  href="/feedback/index" class="word_white">意见反馈</a> | <a href="#" onClick="quit()" class="word_white">系统退出</a></td>

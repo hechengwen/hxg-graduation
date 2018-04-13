@@ -5,20 +5,17 @@
     <title>医院医务管理系统</title>
     <link href="/CSS/style.css" rel="stylesheet">
     <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/layer/layer.js"></script>
 </head>
 <body onLoad="clockon(bgclock)">
 <%@include file="banner.jsp" %>
 <%@include file="navigation.jsp" %>
 
 <script type="text/javascript">
- /*   function $(id) {
-        return document.getElementById(id);
-    }*/
-
     function checkname() {
         var div = document.getElementById("div1");
         div.innerHTML = "";
-        var name = $("name").value;
+        var name = $("#name").val();
         if (name.length == 0) {
             div.innerHTML = "<img src='/Images/wrong.png' width='30' height='25'/>请输入医师姓名!";
             document.getElementById("name").focus();
@@ -32,7 +29,7 @@
     function checktel() {
         var div = document.getElementById("div2");
         div.innerHTML = "";
-        var phone = $("tel").value;
+        var phone = $("#tel").val();
         var ve = /^1[34578]\d{9}$/;
         if (ve.test(phone)) {
             div.innerHTML = "<img src='/Images/right.jpg' width='30' height='25' />";
@@ -51,7 +48,7 @@
     function checkemail() {
         var div = document.getElementById("div3");
         div.innerHTML = "";
-        var email = $("email").value;
+        var email = $("#email").val();
         var ve = /^\w+@\w+\.\w+/;
         if (ve.test(email)) {
             div.innerHTML = "<img src='/Images/right.jpg' width='30' height='25' />";
@@ -221,14 +218,16 @@
             data: $('#form1').serialize(),
             success: function (result) {
                 if (result.success == 1 ) {
-                    window.location.href = "/doctor/getListDoctor";
+                    layer.msg("添加成功",{time:1000},function () {
+                        window.location.href = "/doctor/getListDoctor";
+                    });
                 } else if (result.success == 0) {
-                    alert(result.comment);
+                    layer.msg(result.comment,{time:1000});
                     return;
                 }
             },
             error: function () {
-                alert("异常！");
+                layer.msg("异常！");
             }
         });
     }

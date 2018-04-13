@@ -3,10 +3,13 @@ package com.cn.hxg.controller;
 import com.cn.hxg.annotation.LoginRequired;
 import com.cn.hxg.base.BaseController;
 import com.cn.hxg.entity.Admin;
+import com.cn.hxg.entity.Doctor;
 import com.cn.hxg.entity.Register;
 import com.cn.hxg.entity.RegisterData;
 import com.cn.hxg.restful.RestData;
+import com.cn.hxg.service.DoctorService;
 import com.cn.hxg.service.RegisterService;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,10 +35,19 @@ public class RegisterContorller extends BaseController {
 
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
+    @Autowired
+    private DoctorService doctorService;
+
     @RequestMapping(value = "index")
     @LoginRequired
     public ModelAndView index(){
-        return new ModelAndView("guahao_add");
+        ModelAndView modelAndView = new ModelAndView("guahao_add");
+
+        List<Doctor> doctors = doctorService.getDocList(null);
+
+        modelAndView.addObject("doctors",doctors);
+
+        return modelAndView;
     }
 
     @Autowired
@@ -43,16 +55,23 @@ public class RegisterContorller extends BaseController {
 
     @RequestMapping("insert")
     @LoginRequired
-    public String insert(Register register) {
-
+    @ResponseBody
+    public RestData insert(Register register) {
+        RestData restData = new RestData();
         Admin admin = (Admin) getRequest().getSession().getAttribute("userInfo");
+
+        if (StringUtils.isEmpty(register.getDoctor()) || StringUtils.isEmpty(register.getRegisteredProject())) {
+            restData.setComment("挂号科室或医师姓名必选");
+            return restData;
+        }
 
         register.setRegistrationTime(new Date());
         register.setName(admin.getRole());//学生姓名
 
         registerService.insert(register);
 
-        return "redirect:/admin/stuMain";
+        restData.setSuccess(1);
+        return restData;
     }
 
     @RequestMapping(value = "getStudentRegister")

@@ -43,6 +43,41 @@ public class AdminController extends BaseController {
     @Autowired
     private StudentService studentService;
 
+
+    @RequestMapping("regIndex")
+    public ModelAndView regIndex(){
+        return new ModelAndView("stu_register");
+    }
+
+    @ResponseBody
+    @RequestMapping("register")
+    public RestData register(Student student){
+        RestData rest = new RestData();
+        if (StringUtils.isEmpty(student.getName()) || StringUtils.isEmpty(student.getTel())){
+            rest.setComment("姓名或手机号不能为空");
+            rest.setSuccess(0);
+            return rest;
+        }
+
+        Student old = studentService.getStuByName(student.getName());
+        if (old != null) {
+            rest.setComment("该学生已经存在");
+            rest.setSuccess(0);
+            return rest;
+        }
+
+        try {
+            rest = studentService.saveUser(student);
+        }catch (Exception e) {
+            rest.setComment(e.getMessage());
+            rest.setSuccess(0);
+            return rest;
+        }
+
+        rest.setSuccess(1);
+        return rest;
+    }
+
     @RequestMapping("persionalInfo")
     @LoginRequired
     public ModelAndView persionalInfo() {
@@ -78,7 +113,7 @@ public class AdminController extends BaseController {
     @RequestMapping("modifyPassword")
     @ResponseBody
     @LoginRequired
-    public RestData modifyPassword(String newPassword,String again) {
+    public RestData modifyPassword(String oldPassword,String newPassword,String again) {
         RestData restData = new RestData();
 
         if (StringUtils.isEmpty(newPassword) || StringUtils.isEmpty(again)) {
@@ -92,6 +127,11 @@ public class AdminController extends BaseController {
         }
 
         Admin admin = (Admin) getRequest().getSession().getAttribute("userInfo");
+
+        if (!admin.getPassword().equals(MD5.MD5(oldPassword))) {
+            restData.setComment("原始密码输入错误");
+            return restData;
+        }
 
         if (MD5.MD5(newPassword).equals(admin.getPassword())) {
             restData.setComment("新密码不能与老密码相同");

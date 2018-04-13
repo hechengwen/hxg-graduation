@@ -10,6 +10,7 @@ import com.cn.hxg.utils.MD5;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -60,6 +61,15 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
+    public List<Doctor> getDocByDep(String department){
+        List<Doctor> doctors = doctorMapper.getDocByDep(department);
+        if (doctors == null || doctors.size() <= 0) {
+            return new ArrayList<Doctor>();
+        }
+        return doctors;
+    }
+
+    @Override
     public RestData saveUser(Doctor doctor) throws Exception{
         RestData restData = new RestData();
         this.insert(doctor);
@@ -67,7 +77,7 @@ public class DoctorServiceImpl implements DoctorService {
         Admin old = adminService.selectByRole(doctor.getName(),"0");
 
         if (old != null) {
-            throw new Exception("admin 中已经存在该用户");
+            throw new RuntimeException("admin 中已经存在该用户");
         }
 
         Admin admin = new Admin();
@@ -87,7 +97,7 @@ public class DoctorServiceImpl implements DoctorService {
         Admin admin = adminService.selectByRole(doctor.getName(),"0");
 
         if (admin == null) {
-            throw new Exception("admin 中不存在该用户，删除失败");
+            throw new RuntimeException("admin 中不存在该用户，删除失败");
         }
 
         adminService.deleteByName(doctor.getName());

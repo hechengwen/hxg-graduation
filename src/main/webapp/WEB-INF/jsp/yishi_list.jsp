@@ -5,29 +5,33 @@
     <title>医院医务管理系统</title>
     <link href="/CSS/style.css" rel="stylesheet">
     <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/layer/layer.js"></script>
     <script>
         function delete_id(id) {
-            var status = confirm("你确定要删除该条记录么？");
-            if (!status) {
-                return false;
-            }
-            $.ajax({
-                type: "POST",
-                dataType: "json",
-                url: "/doctor/delete" ,
-                data: {"sno":id},
-                success: function (result) {
-                    if (result.success == 1 ) {
-                        alert("删除成功");
-                        window.location.href="/doctor/getListDoctor";
-                    } else if (result.success == 0) {
-                        alert(result.comment);
-                    }
-                },
-                error : function() {
-                    alert("异常！");
+            layer.confirm("你确定要删除该条记录么？", {btn: ['确定', '取消']},
+                function () {
+                    $.ajax({
+                        type: "POST",
+                        dataType: "json",
+                        url: "/doctor/delete",
+                        data: {"sno": id},
+                        success: function (result) {
+                            if (result.success == 1) {
+                                layer.msg("删除成功", {time: 2000}, function () {
+                                    window.location.href = "/doctor/getListDoctor";
+                                });
+                            } else if (result.success == 0) {
+                                layer.msg(result.comment);
+                            }
+                        },
+                        error: function () {
+                            layer.msg("异常！");
+                        }
+                    });
+                }, function () {
+
                 }
-            });
+            );
         }
     </script>
 </head>
@@ -96,8 +100,9 @@
                                             <td>${doctor.tel}</td>
                                             <td>${doctor.department}</td>
                                             <td>${doctor.email}</td>
-                                            <td><input type="button" name="btn" value="删除" onclick="delete_id(${doctor.sno})">
-                                                </td>
+                                            <td><input type="button" name="btn" value="删除"
+                                                       onclick="delete_id(${doctor.sno})">
+                                            </td>
                                         </tr>
                                         </c:forEach>
                                         </tr>

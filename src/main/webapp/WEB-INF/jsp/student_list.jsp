@@ -7,27 +7,30 @@
     <script src="/js/jquery-3.2.1.min.js"></script>
     <script>
         function delete_id(id) {
-            var status = confirm("你确定要删除该条记录么？");
-            if (!status) {
-                return false;
-            }
-            $.ajax({
-                type: "POST",
-                dataType: "json",
-                url: "/student/delete" ,
-                data: {"sno":id},
-                success: function (result) {
-                    if (result.success == 1 ) {
-                        alert("删除成功");
-                        window.location.href="/student/getListStudent";
-                    } else if (result.success == 0) {
-                        alert(result.comment);
-                    }
-                },
-                error : function() {
-                    alert("异常！");
+            layer.confirm("你确定要删除该条记录么？", {btn: ['确定', '取消']},
+                function () {
+                    $.ajax({
+                        type: "POST",
+                        dataType: "json",
+                        url: "/student/delete" ,
+                        data: {"sno":id},
+                        success: function (result) {
+                            if (result.success == 1) {
+                                layer.msg("删除成功", {time: 2000}, function () {
+                                    window.location.href="/student/getListStudent";
+                                });
+                            } else if (result.success == 0) {
+                                layer.msg(result.comment);
+                            }
+                        },
+                        error: function () {
+                            layer.msg("异常！");
+                        }
+                    });
+                }, function () {
+
                 }
-            });
+            );
         }
     </script>
 </head>

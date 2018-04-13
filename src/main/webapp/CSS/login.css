@@ -111,7 +111,7 @@ form button {
     padding: 10px -1px;
     color: #53e3a6;
     border-radius: 3px;
-    width: 179px;
+    width: 51px;
     cursor: pointer;
     font-size: 18px;
     -webkit-transition-duration: 0.25s;
@@ -120,3 +120,4 @@ form button {
 form button:hover {
     background-color: #f5f7f9;
 }
+

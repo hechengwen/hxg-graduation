@@ -5,6 +5,7 @@
     <title>医院医务管理系统</title>
     <link href="/CSS/style.css" rel="stylesheet">
     <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/layer/layer.js"></script>
 </head>
 <body onLoad="clockon(bgclock)">
 <%@include file="banner.jsp" %>
@@ -231,14 +232,17 @@
             data: $('#form1').serialize(),
             success: function (result) {
                 if (result.success == 1) {
-                    window.location.href = "/student/getListStudent";
+                    layer.msg("添加成功",{time:2000},function () {
+                        window.location.href = "/student/getListStudent";
+                    });
+
                 } else if (result.success == 0) {
-                    alert(result.comment);
+                    layer.msg(result.comment);
                     return;
                 }
             },
             error: function () {
-                alert("异常！");
+                layer.msg("异常！");
             }
         });
     }

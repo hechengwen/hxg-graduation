@@ -3,6 +3,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="/js/onclock.JS"></script>
 <script src="/js/menu.JS"></script>
+<script src="/js/jquery-3.2.1.min.js"></script>
+<script src="/layer/layer.js"></script>
 <div class=menuskin id=popmenu
      onmouseover="clearhidemenu();highlightmenu(event,'on')"
      onmouseout="highlightmenu(event,'off');dynamichide(event)" style="Z-index:100;position:absolute;"></div>
@@ -14,9 +16,9 @@
         </td>
         <script language="javascript">
             function quit() {
-                if (confirm("真的要退出系统吗?")) {
+                layer.confirm("确定要退出系统吗?", {btn: ['确定', '取消']},function () {
                     window.location.href = "/admin/logout";
-                }
+                });
             }
         </script>
         <td width="79%" align="right" bgcolor="#B0690B" class="word_white"><a href="/admin/sysMain" class="word_white">医务室简介</a> | <a

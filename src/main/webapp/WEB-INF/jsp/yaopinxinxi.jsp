@@ -5,30 +5,33 @@
     <title>医院医务管理系统</title>
     <link href="/CSS/style.css" rel="stylesheet">
     <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/layer/layer.js"></script>
     <script>
         function delete_id(id) {
-            var status = confirm("你确定要删除该条记录么？");
-            if (!status) {
-                return false;
-            }
-            $.ajax({
-                //几个参数需要注意一下
-                type: "POST",//方法类型
-                dataType: "json",//预期服务器返回的数据类型
-                url: "/medicine/delete" ,//url
-                data: {"drugNum":id},
-                success: function (result) {
-                    if (result.success == 1 ) {
-                        alert("删除成功");
-                        window.location.href="/medicine/select";
-                    } else if (result.success == 0) {
-                        alert(result.comment);
-                    }
-                },
-                error : function() {
-                    alert("异常！");
+            layer.confirm("你确定要删除该条记录么？", {btn: ['确定', '取消']},
+                function () {
+                    $.ajax({
+                        type: "POST",
+                        dataType: "json",
+                        url: "/medicine/delete",
+                        data: {"drugNum":id},
+                        success: function (result) {
+                            if (result.success == 1) {
+                                layer.msg("删除成功", {time: 2000}, function () {
+                                    window.location.href="/medicine/select";
+                                });
+                            } else if (result.success == 0) {
+                                layer.msg(result.comment);
+                            }
+                        },
+                        error: function () {
+                            layer.msg("异常！");
+                        }
+                    });
+                }, function () {
+
                 }
-            });
+            );
         }
     </script>
 </head>

@@ -6,6 +6,7 @@ import com.cn.hxg.entity.Admin;
 import com.cn.hxg.entity.Medicine;
 import com.cn.hxg.restful.RestData;
 import com.cn.hxg.service.MedicineService;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,17 +43,32 @@ public class MedicineController extends BaseController {
 
     @RequestMapping("/insert")
     @LoginRequired
-    public String insert(Medicine medicine) {
+    @ResponseBody
+    public RestData insert(Medicine medicine) {
+        RestData rest = new RestData();
+
+        if (StringUtils.isEmpty(medicine.getDrugName())
+                || StringUtils.isEmpty(medicine.getProductionDate())
+                || StringUtils.isEmpty(medicine.getEffectiveDate())
+                || StringUtils.isEmpty(medicine.getProductionEnterprise())
+                || StringUtils.isEmpty(medicine.getStockUnits())
+                || StringUtils.isEmpty(medicine.getContactPerson())
+                || medicine.getBuyPrice() == null
+                || medicine.getSellerPrice() == null) {
+            rest.setComment("必填参数不能为空");
+            return rest;
+        }
 
         if (medicine.getDrugNum() == null) {
             medicineService.insert(medicine);
-            return "redirect:/medicine/select";
+            rest.setSuccess(1);
+            return rest;
         } else {
             int id = medicine.getDrugNum();
 
             Medicine medicine1 = medicineService.selectByPrimaryKey(id);
         }
-        return "";
+        return rest;
     }
 
     @RequestMapping("/delete")
@@ -61,10 +77,10 @@ public class MedicineController extends BaseController {
     public RestData delete(String drugNum) {
         Medicine medicine = medicineService.selectByPrimaryKey(Integer.valueOf(drugNum));
         if (medicine == null) {
-            return new RestData(0,"记录不存在","");
+            return new RestData(0, "记录不存在", "");
         }
         medicineService.deleteByPrimaryKey(Integer.valueOf(drugNum));
-        return new RestData(1,null,null);
+        return new RestData(1, null, null);
     }
 
 
@@ -75,7 +91,7 @@ public class MedicineController extends BaseController {
 
         String data = request.getParameter("data");
 
-        List medicines = medicineService.getAll(null, null,data);
+        List medicines = medicineService.getAll(null, null, data);
 
         modelAndView.addObject("page", medicines);
         return modelAndView;

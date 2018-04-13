@@ -4,6 +4,7 @@ import com.cn.hxg.annotation.LoginRequired;
 import com.cn.hxg.base.BaseController;
 import com.cn.hxg.entity.Admin;
 import com.cn.hxg.entity.Feedback;
+import com.cn.hxg.restful.RestData;
 import com.cn.hxg.service.FeedbackService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +44,9 @@ public class FeedbackController extends BaseController {
 
     @RequestMapping("insert")
     @LoginRequired
-    public String insert(Feedback feedback) {
+    @ResponseBody
+    public RestData insert(Feedback feedback) {
+        RestData restData = new RestData();
 
         Admin admin = (Admin) getRequest().getSession().getAttribute("userInfo");
 
@@ -51,8 +54,9 @@ public class FeedbackController extends BaseController {
         feedback.setStuName(admin.getRole());
 
         feedbackService.insert(feedback);
+        restData.setSuccess(1);
 
-        return "redirect:/admin/stuMain";
+        return restData;
     }
 
     @RequestMapping("/getList")
