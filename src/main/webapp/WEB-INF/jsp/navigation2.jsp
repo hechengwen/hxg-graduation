@@ -3,6 +3,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=gbk">
 <script src="/js/onclock.JS"></script>
 <script src="/js/menu.JS"></script>
+<script src="/js/jquery-3.2.1.min.js"></script>
+<script src="/layer/layer.js"></script>
 <div class=menuskin id=popmenu
       onmouseover="clearhidemenu();highlightmenu(event,'on')"
       onmouseout="highlightmenu(event,'off');dynamichide(event)" style="Z-index:100;position:absolute;"></div>

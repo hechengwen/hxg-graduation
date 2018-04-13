@@ -16,12 +16,10 @@
         $(document).ready(function () {
             $("#registeredProject").change(function () {
                 var val = $('#registeredProject option:selected').val();//获取当前选中的值
-                if (val == '') {
-                    $("#doctor option:not(:first)").remove();//清空doctor
-                    return;
-                }
+                $("#doctor option:not(:first)").remove();//清空doctor
+
                 $.ajax({
-                    url: "/doctor/getDocByDep?department="+val,
+                    url: "/doctor/getDocByDep?department=" + val,
                     async: true,
                     type: 'GET',
                     contentType: "application/json",
@@ -74,7 +72,7 @@
             <table width="100%" height="444" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF"
                    class="tableBorder_gray">
                 <tr>
-                    <td height="27" valign="top" style="padding:5px;" class="word_orange">当前位置：预约挂号 &gt; 门诊挂号&gt;&gt;&gt;</td>
+                    <td height="27" valign="top" style="padding:5px;" class="word_orange">当前位置：预约挂号 &gt;</td>
                 </tr>
                 <tr>
                     <td height="417" align="center" valign="top" style="padding:5px;">
