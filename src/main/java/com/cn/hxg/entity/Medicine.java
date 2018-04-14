@@ -41,7 +41,7 @@ public class Medicine extends BaseObject {
     private BigDecimal sellerPrice;
 
     /** 进货数量 */
-    private Integer number;
+    private String number;
 
     /** 进货单位 */
     private String stockUnits;

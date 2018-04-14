@@ -11,7 +11,7 @@
 <table width="778" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#0000FF">
     <tr bgcolor="#B0690B">
         <td width="3%" height="27">&nbsp;</td>
-        <td width="20%">
+        <td width="15%">
             <div id="bgclock" class="word_white"></div>
         </td>
         <script language="javascript">
@@ -29,9 +29,9 @@
                                                  style="CURSOR:hand" class="word_white">学生管理</a> | <a
                     onmouseover=showmenu(event,yaopinmenu) onmouseout=delayhidemenu() class="word_white"
                     style="CURSOR:hand">药品管理</a> | <a onmouseover=showmenu(event,yishimenu) onmouseout=delayhidemenu()
-                                                      class="word_white" style="CURSOR:hand">医师管理</a> | <a
+                                                      class="word_white" style="CURSOR:hand">医师管理</a> <%--| <a
                     onmouseover=showmenu(event,querymenu) onmouseout=delayhidemenu() class="word_white"
-                    style="CURSOR:hand">系统管理</a> | <a onmouseover=showmenu(event,gerenzhongxin) onmouseout=delayhidemenu()
+                    style="CURSOR:hand">系统管理</a>--%> | <a onmouseover=showmenu(event,gerenzhongxin) onmouseout=delayhidemenu()
                                                       class="word_white" style="CURSOR:hand">个人中心</a> | <a href="#" onClick="quit()" class="word_white">注销登录</a></td>
         <td width="2%" bgcolor="#B0690B">&nbsp;</td>
     </tr>

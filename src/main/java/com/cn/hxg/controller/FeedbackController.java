@@ -48,6 +48,11 @@ public class FeedbackController extends BaseController {
     public RestData insert(Feedback feedback) {
         RestData restData = new RestData();
 
+        if (StringUtils.isEmpty(feedback.getDesc())) {
+            restData.setComment("反馈信息不能为空");
+            return restData;
+        }
+
         Admin admin = (Admin) getRequest().getSession().getAttribute("userInfo");
 
         feedback.setFeedTime(new Date());

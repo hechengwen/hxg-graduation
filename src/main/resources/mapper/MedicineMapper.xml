@@ -10,7 +10,7 @@
         <result column="production_enterprise" property="productionEnterprise" jdbcType="VARCHAR" />
         <result column="buy_price" property="buyPrice" jdbcType="DECIMAL" />
         <result column="seller_price" property="sellerPrice" jdbcType="DECIMAL" />
-        <result column="number" property="number" jdbcType="INTEGER" />
+        <result column="number" property="number" jdbcType="VARCHAR" />
         <result column="stock_units" property="stockUnits" jdbcType="VARCHAR" />
         <result column="contact_person" property="contactPerson" jdbcType="VARCHAR" />
     </resultMap>
@@ -57,7 +57,7 @@
         stock_units,contact_person)
         values (#{drugNum,jdbcType=INTEGER},#{drugName,jdbcType=VARCHAR},#{drugType,jdbcType=VARCHAR},
         #{productionDate,jdbcType=VARCHAR},#{effectiveDate,jdbcType=VARCHAR},#{productionEnterprise,jdbcType=VARCHAR},
-        #{buyPrice,jdbcType=DECIMAL},#{sellerPrice,jdbcType=DECIMAL},#{number,jdbcType=INTEGER},
+        #{buyPrice,jdbcType=DECIMAL},#{sellerPrice,jdbcType=DECIMAL},#{number,jdbcType=VARCHAR},
         #{stockUnits,jdbcType=VARCHAR},#{contactPerson,jdbcType=VARCHAR})
     </insert>
     <insert id="insertSelective" parameterType="com.cn.hxg.entity.Medicine">
@@ -126,7 +126,7 @@
                 #{sellerPrice,jdbcType=DECIMAL},
             </if>
             <if test="number != null" >
-                #{number,jdbcType=INTEGER},
+                #{number,jdbcType=VARCHAR},
             </if>
             <if test="stockUnits != null" >
                 #{stockUnits,jdbcType=VARCHAR},
@@ -162,7 +162,7 @@
                 seller_price = #{record.sellerPrice,jdbcType=DECIMAL},
             </if>
             <if test="record.number != null">
-                number = #{record.number,jdbcType=INTEGER},
+                number = #{record.number,jdbcType=VARCHAR},
             </if>
             <if test="record.stockUnits != null">
                 stock_units = #{record.stockUnits,jdbcType=VARCHAR},
@@ -182,7 +182,7 @@
 		production_enterprise = #{record.productionEnterprise,jdbcType=VARCHAR},
 		buy_price = #{record.buyPrice,jdbcType=DECIMAL},
 		seller_price = #{record.sellerPrice,jdbcType=DECIMAL},
-		number = #{record.number,jdbcType=INTEGER},
+		number = #{record.number,jdbcType=VARCHAR},
 		stock_units = #{record.stockUnits,jdbcType=VARCHAR},
 		contact_person = #{record.contactPerson,jdbcType=VARCHAR}
 

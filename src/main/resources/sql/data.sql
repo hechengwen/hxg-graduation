@@ -55,7 +55,7 @@ CREATE TABLE `feedback` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `stu_name` varchar(30) DEFAULT NULL COMMENT '反馈人',
   `desc` varchar(1000) DEFAULT NULL COMMENT '反馈意见',
-  `feed_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '反馈时间',
+  `feed_time` datetime DEFAULT NULL COMMENT '反馈时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
@@ -71,7 +71,7 @@ INSERT INTO `hxg_bishe`.`feedback` (`id`, `stu_name`, `desc`, `feed_time`) VALUE
 CREATE TABLE `medical_records` (
   `stu_name` varchar(30) DEFAULT NULL COMMENT '患者姓名',
   `dco_name` varchar(30) DEFAULT NULL COMMENT '就诊医生',
-  `jzrq` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '就诊日期',
+  `jzrq` datetime DEFAULT NULL COMMENT '就诊日期',
   `description` varchar(100) DEFAULT NULL COMMENT '病情描述'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -85,7 +85,7 @@ CREATE TABLE `medicine` (
   `production_enterprise` varchar(50) DEFAULT NULL COMMENT '生产企业',
   `buy_price` decimal(10,2) DEFAULT NULL COMMENT '进货价格',
   `seller_price` decimal(10,2) DEFAULT NULL COMMENT '销售价格',
-  `number` int(11) DEFAULT NULL COMMENT '数量',
+  `number` varchar(11) DEFAULT NULL COMMENT '数量',
   `stock_units` varchar(50) DEFAULT NULL COMMENT '进货单位',
   `contact_person` varchar(30) DEFAULT NULL COMMENT '联系人',
   PRIMARY KEY (`drug_num`)
@@ -96,7 +96,7 @@ CREATE TABLE `medicine` (
 CREATE TABLE `purchase_history` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水号',
   `bh` varchar(30) DEFAULT NULL COMMENT '编号',
-  `clinic_date` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '就诊时间',
+  `clinic_date` datetime DEFAULT NULL  COMMENT '就诊时间',
   `drug_num` varchar(30) DEFAULT NULL COMMENT '药品编号',
   `drug_price` decimal(10,2) DEFAULT NULL COMMENT '药品进价',
   `price` decimal(10,2) DEFAULT NULL COMMENT '销售价',
@@ -107,7 +107,7 @@ CREATE TABLE `purchase_history` (
 # 挂号表
 CREATE TABLE `register` (
   `serial_number` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水号',
-  `registration_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '挂号时间',
+  `registration_time` datetime DEFAULT NULL  COMMENT '挂号时间',
   `registered_project` varchar(30) DEFAULT NULL COMMENT '挂号项目',
   `doctor` varchar(30) DEFAULT NULL COMMENT '预约医生',
   `name` varchar(30) DEFAULT NULL COMMENT '学生姓名',

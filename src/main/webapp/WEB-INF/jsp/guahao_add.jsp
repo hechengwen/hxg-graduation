@@ -19,10 +19,10 @@
                 $("#doctor option:not(:first)").remove();//清空doctor
 
                 $.ajax({
-                    url: "/doctor/getDocByDep?department=" + val,
+                    url: "/doctor/getDocByDep?department=" + encodeURI(encodeURI(val)),//传值到后台出现中文乱码，需要这样处理
                     async: true,
                     type: 'GET',
-                    contentType: "application/json",
+                    contentType: "application/json;charset=UTF-8",
                     dataType: "json",
                     success: function (data) {
                         $.each(data.data, function (k, p) {

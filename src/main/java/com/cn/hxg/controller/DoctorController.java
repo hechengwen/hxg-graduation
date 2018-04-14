@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.Date;
 import java.util.List;
 
@@ -104,6 +106,11 @@ public class DoctorController extends BaseController{
     @LoginRequired
     public RestData getDocByDep(String department) {
         RestData restData = new RestData();
+        try {
+            department = URLDecoder.decode(department,"UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         List<Doctor> doctors = doctorService.getDocByDep(department);
         restData.setData(doctors);
         restData.setSuccess(1);

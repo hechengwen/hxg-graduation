@@ -37,10 +37,12 @@
         }
         else if (phone.length == 0) {
             div.innerHTML = "<img src='/Images/wrong.png' width='30' height='25' />请输入电话号码！";
+            document.getElementById("tel").focus();
             return false;
         }
         else {
             div.innerHTML = "<img src='/Images/wrong.png' width='30' height='25' />输入有误！";
+            document.getElementById("tel").focus();
             return false;
         }
     }
