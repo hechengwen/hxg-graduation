@@ -19,7 +19,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Copyright (C), 2017，jumore Tec.
+ * Copyright (C), 2017，hxg Tec.
  * Author: hechengwen
  * Version:
  * Date: 2018/4/9 17:43

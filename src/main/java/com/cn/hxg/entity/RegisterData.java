@@ -3,7 +3,7 @@ package com.cn.hxg.entity;
 import lombok.Data;
 
 /**
- * Copyright (C), 2017，jumore Tec.
+ * Copyright (C), 2017，hxg Tec.
  * Author: hechengwen
  * Version:
  * Date: 2018/4/11 9:29

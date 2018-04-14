@@ -4,7 +4,7 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 
 /**
- * Copyright (C), 2017，jumore Tec.
+ * Copyright (C), 2017，hxg Tec.
  * Author: hechengwen
  * Version:
  * Date: 2018/4/9 13:19

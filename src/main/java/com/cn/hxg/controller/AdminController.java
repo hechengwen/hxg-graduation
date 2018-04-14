@@ -23,7 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.management.relation.Role;
 
 /**
- * Copyright (C), 2017，jumore Tec.
+ * Copyright (C), 2017，hxg Tec.
  * Author: hechengwen
  * Version:
  * Date: 2018/4/8 17:42
