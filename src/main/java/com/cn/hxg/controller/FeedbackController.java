@@ -48,7 +48,7 @@ public class FeedbackController extends BaseController {
     public RestData insert(Feedback feedback) {
         RestData restData = new RestData();
 
-        if (StringUtils.isEmpty(feedback.getDesc())) {
+        if (StringUtils.isEmpty(feedback.getDesc().trim())) {
             restData.setComment("反馈信息不能为空");
             return restData;
         }
