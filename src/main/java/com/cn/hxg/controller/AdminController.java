@@ -7,6 +7,7 @@ import com.cn.hxg.entity.Doctor;
 import com.cn.hxg.entity.StuAndDoc;
 import com.cn.hxg.entity.Student;
 import com.cn.hxg.restful.RestData;
+import com.cn.hxg.rsa.Base64;
 import com.cn.hxg.service.AdminService;
 import com.cn.hxg.service.DoctorService;
 import com.cn.hxg.service.StudentService;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.management.relation.Role;
+import javax.servlet.http.HttpSession;
 
 /**
  * Copyright (C), 2017，hxg Tec.
@@ -237,6 +239,12 @@ public class AdminController extends BaseController {
             return restData;
         }
 
+        logger.info("密码密文为：{}",password);
+
+//        String mingwen = new String(Base64.decode(password));
+//
+//        logger.info("密码明文为：{}",mingwen);
+
         Admin admin = adminService.selectByRole(username, userType);
 
         if (admin == null) {
@@ -245,7 +253,7 @@ public class AdminController extends BaseController {
             return restData;
         }
 
-        if (!MD5.MD5(password.trim()).equals(admin.getPassword())) {
+        if (!password.trim().equalsIgnoreCase(admin.getPassword())) {
             logger.info("密码错误...");
             restData.setComment("密码错误");
             restData.setSuccess(0);
@@ -256,6 +264,7 @@ public class AdminController extends BaseController {
         getRequest().getSession().setAttribute("userInfo", admin);
         getRequest().getSession().setAttribute("g_name", admin.getRole());
 
+        logger.info("{}:登录成功",admin.getRole());
         restData.setSuccess(1);
         restData.setData(userType);
         return restData;
@@ -264,7 +273,10 @@ public class AdminController extends BaseController {
     @RequestMapping(value = "/logout")
     @LoginRequired
     public ModelAndView logout() {
-        getRequest().getSession().invalidate();
+        HttpSession session = getRequest().getSession();
+        Admin admin = (Admin) session.getAttribute("userInfo");
+        session.invalidate();
+        logger.info("{}:登出系统成功",admin.getRole());
         return new ModelAndView("index");
     }
 

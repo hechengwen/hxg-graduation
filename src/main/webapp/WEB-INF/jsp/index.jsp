@@ -12,6 +12,9 @@
     <link href="/CSS/style.css" rel="stylesheet">
     <script src="/js/jquery-3.2.1.min.js"></script>
     <script src="/layer/layer.js"></script>
+    <script src="/js/md5.js"></script>
+    <script src="/js/sha1.js"></script>
+    <script src="/js/base64.js"></script>
     <link rel="stylesheet" type="text/css" href="/CSS/login.css">
 </head>
 <body>
@@ -58,7 +61,7 @@
                                                                                         class="STYLE1"></span></td>
                                                                                 <td width="12%" style="font-size: 13pt;">用户类型：</td>
                                                                                 <td width="15%"><select name="userType"
-                                                                                                        id="type">
+                                                                                                        id="userType">
                                                                                     <option value="0" id="guanliyuan" >
                                                                                         医生
                                                                                     </option>
@@ -141,6 +144,7 @@
     function check() {
         var sUserName = $("#username").val();
         var sPassword = $("#password").val();
+        var userType = $("#userType").val();
         if (sUserName == "") {
             layer.msg("请输入用户名!",{time:1000});
             return false;
@@ -151,12 +155,16 @@
             return false;
         }
 
+        var encryedPassword = hex_md5(sPassword);
+//        var b = new Base64();
+//        var encryedPassword = b.encode(sPassword);
+
         $.ajax({
             //几个参数需要注意一下
             type: "POST",//方法类型
             dataType: "json",//预期服务器返回的数据类型
             url: "/admin/login",//url
-            data: $('#form1').serialize(),
+            data: {"username":sUserName,"password":encryedPassword,"userType":userType},
             success: function (result) {
                 // 管理员
                 if (result.success == 1 && result.data == 0) {
