@@ -9,7 +9,7 @@
 <body onLoad="clockon(bgclock)">
 <%@include file="banner.jsp" %>
 <%@include file="navigation.jsp" %>
-
+<!-- 查看医生的个人信息展示页面 -->
 <table width="778" border="0" cellspacing="0" cellpadding="0" align="center">
     <tr>
         <td height="527" valign="top" bgcolor="#FFFFFF">

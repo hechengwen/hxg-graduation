@@ -15,124 +15,99 @@
     <script src="/js/md5.js"></script>
     <script src="/js/sha1.js"></script>
     <script src="/js/base64.js"></script>
-    <link rel="stylesheet" type="text/css" href="/CSS/login.css">
+    <!-- <link rel="stylesheet" type="text/css" href="/CSS/login.css"> -->
 </head>
 <body>
 <table width="778" border="0" align="center" cellpadding="0" cellspacing="0">
-    <tr>
-        <td>
-            <table width="760" border="0" align="center" cellpadding="0" cellspacing="0">
+ <tr>
+   <td>
+    <table width="760" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr><td height="142" valign="top">&nbsp;</td></tr>
+    </table>
+   </td>
+ </tr>
+   <td>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+	 <tr>
+       <td valign="top">
+        <table width="100%" height="525" border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+            <td height="523" align="center" valign="top">
+              <table width="100%" height="271" border="0" cellpadding="0" cellspacing="0">
                 <tr>
-                    <td height="142" valign="top">&nbsp;</td>
-                </tr>
-            </table>
-        </td>
-    </tr>
-    <td>
-        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-
-            <tr>
-                <td valign="top">
-                    <table width="100%" height="525" border="0" align="center" cellpadding="0" cellspacing="0">
-                        <tr>
-                            <td height="523" align="center" valign="top">
-                                <table width="100%" height="271" border="0" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                        <td height="271" align="right" valign="top">
-                                            <table width="100%" height="255" border="0" cellpadding="0" cellspacing="0"
-                                                   background="/Images/commhospital.jpg" class="tableBorder">
-                                                <tr>
-                                                    <td height="57">&nbsp;</td>
-                                                </tr>
-                                                <tr>
-                                                    <td height="179" valign="top">
-                                                        <table width="100%" height="63" border="0" cellpadding="0"
-                                                               cellspacing="0" >
-                                                            <tr>
-                                                                <td width="2%">&nbsp;</td>
-                                                                <td width="97%" align="center" valign="top">
-                                                                    <form name="form1" id="form1" action="">
-                                                                        <table width="100%" border="0" cellpadding="0"
-                                                                               cellspacing="0"
-                                                                               bordercolorlight="#FFFFFF"
-                                                                               bordercolordark="#D2E3E6">
-                                                                            <tr>
-                                                                                <td height="57"><span
-                                                                                        class="STYLE1"></span></td>
-                                                                                <td width="12%" style="font-size: 13pt;">用户类型：</td>
-                                                                                <td width="15%"><select name="userType"
-                                                                                                        id="userType">
-                                                                                    <option value="0" id="guanliyuan" >
-                                                                                        医生
-                                                                                    </option>
-                                                                                    <option value="1" id="yishi">学生
-                                                                                    </option>
-                                                                                </select>
-                                                                                </td>
-
-                                                                                <td height="57" colspan="2"
-                                                                                    align="center">&nbsp;
-                                                                                </td>
-
-                                                                                <td>&nbsp;</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td width="75%" height="37">&nbsp;</td>
-                                                                                <td style="font-size: 13pt;">用&nbsp;户&nbsp;名：</td>
-                                                                                <td>
-                                                                                    <input name="username" type="text"
-                                                                                           class="logininput"
-                                                                                           id="username" size="20"></td>
-
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td height="37">&nbsp;</td>
-                                                                                <td style="font-size: 13pt;">密&nbsp;&nbsp;码：</td>
-                                                                                <td><input name="password"
-                                                                                           type="password"
-                                                                                           class="logininput"
-                                                                                           id="password" size="20"></td>
-                                                                                <td>&nbsp;</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td height="30">&nbsp;</td>
-                                                                                <td colspan="2" align="center">
-                                                                                    <button name="button" type="button" value="登录" onClick="check()">登录</button>
-                                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                                    <button name="button" type="button" onClick="register()">注册</button>
-                                                                            </tr>
-                                                                        </table>
-                                                                    </form>
-                                                                </td>
-                                                                <td width="1%">&nbsp;</td>
-                                                            </tr>
-                                                        </table>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td height="19">&nbsp;</td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                    </tr>
-
+                  <td height="271" align="right" valign="top">
+                    <table width="100%" height="255" border="0" cellpadding="0" cellspacing="0" background="/Images/commhospital.jpg" class="tableBorder">
+                      <tr> <td height="57">&nbsp;</td> </tr>
+                      <tr>
+                   	    <td height="179" valign="top">
+                         <table width="100%" height="63" border="0" cellpadding="0" cellspacing="0" >
+                           <tr>
+                             <td width="2%">&nbsp;</td>
+                             <td width="97%" align="center" valign="top">
+                              <form name="form1" id="form1" action="">
+                                 <table width="100%" border="0" cellpadding="0" cellspacing="0" bordercolorlight="#FFFFFF" bordercolordark="#D2E3E6">
+                                  <tr><td height="57"><span class="STYLE1"></span></td>
+                                      <td width="12%" style="font-size: 13pt;">用户类型：</td>
+                                      <td width="15%">
+                                      	<select name="userType" id="userType">
+                                          <option value="0" id="guanliyuan" > 医生 </option>
+                                          <!-- <option value="0" id="guanliyuan2" > 医生 </option>   --> 
+                                     	  <option value="1" id="yishi">学生 </option>
+                                        </select>
+                                      </td>
+									  <td height="57" colspan="2" align="center">&nbsp;&nbsp;</td>
+									  <td>&nbsp;</td>
+                                  </tr>
+                                  <tr>
+                                      <td width="75%" height="37">&nbsp;</td>
+                                      <td style="font-size: 13pt;">用&nbsp;户&nbsp;名：</td>
+                                      <td>
+                                         <input name="username" type="text" class="logininput"id="username" size="20">
+                                  	  </td>
+                                  </tr>
+                                  <tr>
+                                      <td height="37">&nbsp;</td>
+                                      <td style="font-size: 13pt;">密&nbsp;&nbsp;码：</td>
+                                      <td><input name="password" type="password" class="logininput" id="password" size="20"></td>
+                                      <td>&nbsp;</td>
+                                  </tr>
+                                  <tr>
+                                      <td height="30">&nbsp;</td>
+                                      <td colspan="2" align="center">
+                                        <button name="button" type="button" value="登录" onClick="check()">登录</button>
+                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <button name="button" type="button" onClick="register()">注册</button>
+                                  </tr>
                                 </table>
-                                <table width="100%" height="27" border="0" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                        <td align="center" class="word_login"></td>
-
-                                    </tr>
-                                    <tr>
-                                        <td align="center"><h5>版权所有，翻录必究</h5></td>
-                                    </tr>
-                                </table>
-                            </td>
+                            </form>
+                          </td>
+                          <td width="1%">&nbsp;</td>
                         </tr>
-                    </table>
-                </td>
-            </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td height="19">&nbsp;</td>
+                  </tr>
+               </table>
+            </td>
+       	  </tr>
+		</table>
+        <table width="100%" height="27" border="0" cellpadding="0" cellspacing="0">
+          <tr>
+              <td align="center" class="word_login"></td>
+          </tr>
+          <tr>
+              <td align="center"><h5>版权所有，翻录必究</h5></td>
+          </tr>
         </table>
-    </td>
+     </td>
+   </tr>
+ </table>
+</td>
+</tr>
+</table>
+</td>
 </table>
 </body>
 

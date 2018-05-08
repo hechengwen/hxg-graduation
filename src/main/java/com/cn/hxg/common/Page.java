@@ -5,16 +5,16 @@ import java.util.List;
 
 /**
  * Copyright (C), 2017，hxg Tec.
- * Author: hechengwen
+ * Author: huxiaogang
  * Version:
  * Date: 2018/4/10 15:15
  * Description:
  * Others:
  */
 public class Page {
-    private Integer currentPage;
-    private Integer prevPage;
-    private Integer nextPage;
+    private Integer currentPage;//当前页
+    private Integer prevPage;//上一页
+    private Integer nextPage;//下一页
     private List<Object> showUsers =new ArrayList<Object>();
     private List<Integer> showPageNums =new ArrayList<Integer>();
     public Integer getCurrentPage() {

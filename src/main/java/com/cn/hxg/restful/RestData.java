@@ -4,7 +4,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-
+/**
+ * 分配用户权限，0代表是管理员或者是医生，1代表学生
+ * */
 @Data
 @NoArgsConstructor
 public class RestData implements Serializable {

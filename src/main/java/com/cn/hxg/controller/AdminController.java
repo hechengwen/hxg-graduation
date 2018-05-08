@@ -50,7 +50,7 @@ public class AdminController extends BaseController {
     public ModelAndView regIndex(){
         return new ModelAndView("stu_register");
     }
-
+    
     @ResponseBody
     @RequestMapping("register")
     public RestData register(Student student){
@@ -79,7 +79,7 @@ public class AdminController extends BaseController {
         rest.setSuccess(1);
         return rest;
     }
-
+    //查看管理员的个人基本信息
     @RequestMapping("persionalInfo")
     @LoginRequired
     public ModelAndView persionalInfo() {
@@ -98,6 +98,11 @@ public class AdminController extends BaseController {
         return modelAndView;
     }
 
+    /**
+     * 校验当前登录用户的原始密码
+     * @param oldPassword
+     * @return
+     */
     @RequestMapping(value = "oldPassword")
     @LoginRequired
     @ResponseBody
@@ -112,6 +117,13 @@ public class AdminController extends BaseController {
         return restData;
     }
 
+    /**
+     * 修改密码
+     * @param oldPassword
+     * @param newPassword
+     * @param again
+     * @return
+     */
     @RequestMapping("modifyPassword")
     @ResponseBody
     @LoginRequired

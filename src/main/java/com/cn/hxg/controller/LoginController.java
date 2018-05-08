@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * Copyright (C), 2017，hxg Tec.
- * Author: hechengwen
+ * Author: huxiaogang
  * Version:
  * Date: 2018/4/9 19:10
  * Description:

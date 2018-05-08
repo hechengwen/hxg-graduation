@@ -28,7 +28,7 @@ public class StuAndDoc extends BaseObject {
 
     /** 密码 */
     private String password;
-
+    //用户权限分配
     private String userType;
 
     /** 从业年份 */

@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 
-<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="/js/onclock.JS"></script>
 <script src="/js/menu.JS"></script>
 <script src="/js/jquery-3.2.1.min.js"></script>

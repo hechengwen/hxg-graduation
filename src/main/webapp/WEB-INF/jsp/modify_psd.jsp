@@ -55,12 +55,12 @@
         }
         else if (newPassword.length == 0) {
             div.innerHTML = "<img src='/Images/wrong.png' width='30' height='25' />请输入新密码！";
-            document.getElementById("newPassword").focus();
+            /* document.getElementById("newPassword").focus(); */
             return false;
         }
         else {
             div.innerHTML = "<img src='/Images/wrong.png' width='30' height='25' />新密码必须为6位数字！";
-            document.getElementById("newPassword").focus();
+            /* document.getElementById("newPassword").focus(); */
             return false;
         }
     }
@@ -75,7 +75,7 @@
             return true;
         } else {
             div.innerHTML = "<img src='/Images/wrong.png' width='30' height='25' />两次密码输入不一致";
-            document.getElementById("again").focus();
+            /* document.getElementById("again").focus(); */
             return false;
         }
     }
