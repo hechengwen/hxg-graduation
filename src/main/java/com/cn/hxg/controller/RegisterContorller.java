@@ -53,6 +53,11 @@ public class RegisterContorller extends BaseController {
     @Autowired
     private RegisterService registerService;
 
+    /**
+     * 增加门诊挂号
+     * @param register
+     * @return
+     */
     @RequestMapping("insert")
     @LoginRequired
     @ResponseBody
@@ -74,6 +79,10 @@ public class RegisterContorller extends BaseController {
         return restData;
     }
 
+    /**
+     * 查询当前登录用户挂号列表
+     * @return
+     */
     @RequestMapping(value = "getStudentRegister")
     @LoginRequired
     @ResponseBody
@@ -89,7 +98,7 @@ public class RegisterContorller extends BaseController {
     }
 
     /**
-     * 门诊就诊
+     * 门诊就诊列表
      * @param serialNumber
      * @return
      */
