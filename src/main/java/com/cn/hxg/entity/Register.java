@@ -34,6 +34,11 @@ public class Register extends BaseObject {
     /** 挂号费 */
     private BigDecimal cost;
 
+    /** 就诊状态 */
+    private String status;
+
+    private String registerTimeStr;
+
 
 
 }

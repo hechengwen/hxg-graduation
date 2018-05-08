@@ -74,15 +74,16 @@ public class DoctorServiceImpl implements DoctorService {
         RestData restData = new RestData();
         this.insert(doctor);
 
-        Admin old = adminService.selectByRole(doctor.getName(),"0");
+        Admin old = adminService.selectByRole(doctor.getName(),"2");
 
         if (old != null) {
             throw new RuntimeException("admin 中已经存在该用户");
         }
 
+        // 0：管理员 1：学生 2：医生
         Admin admin = new Admin();
         admin.setRole(doctor.getName());
-        admin.setUserType("0");
+        admin.setUserType("2");
         admin.setPassword(MD5.MD5("123456"));//初始密码
         adminService.insert(admin);
         restData.setSuccess(1);
@@ -94,7 +95,7 @@ public class DoctorServiceImpl implements DoctorService {
         RestData restData = new RestData();
         this.deleteByPrimaryKey(doctor.getSno());
 
-        Admin admin = adminService.selectByRole(doctor.getName(),"0");
+        Admin admin = adminService.selectByRole(doctor.getName(),"2");
 
         if (admin == null) {
             throw new RuntimeException("admin 中不存在该用户，删除失败");

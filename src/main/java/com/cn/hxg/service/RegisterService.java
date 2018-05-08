@@ -21,6 +21,6 @@ public interface RegisterService {
 
     List<Register> getStudentRegister(String name);
 
-    List<RegisterData> getRegisterList(String serialNumber);
+    List<RegisterData> getRegisterList(String serialNumber,String doctorName);
 
 }

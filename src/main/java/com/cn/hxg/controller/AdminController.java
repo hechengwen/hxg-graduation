@@ -50,7 +50,12 @@ public class AdminController extends BaseController {
     public ModelAndView regIndex(){
         return new ModelAndView("stu_register");
     }
-    //学生注册
+
+    /**
+     * 学生注册
+     * @param student
+     * @return
+     */
     @ResponseBody
     @RequestMapping("register")
     public RestData register(Student student){

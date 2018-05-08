@@ -9,7 +9,7 @@
 </head>
 <body onLoad="clockon(bgclock)">
 <%@include file="banner.jsp" %>
-<%@include file="navigation.jsp" %>
+<%@include file="navigation3.jsp" %>
 
 <table width="778" height="510" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF"
        class="tableBorder_gray">
@@ -71,7 +71,14 @@
                                                         <td>${registerData.registerTimeStr}</td>
                                                         <td>${registerData.cost}</td>
                                                         <td>${registerData.doctor}</td>
-                                                        <td>完成</td>
+
+                                                        <c:if test="${registerData.status == '0'}" >
+                                                            <td><input type="button" value="开药" onclick=""></td>
+                                                        </c:if>
+                                                        <c:if test="${registerData.status == '1'}" >
+                                                            <td>就诊完成</td>
+                                                        </c:if>
+
                                                             <%--<td><input type="button" name="btn" value="删除" onclick="delete_id(${medicine.drugNum})">--%>
                                                             <%--</td>--%>
                                                     </tr>

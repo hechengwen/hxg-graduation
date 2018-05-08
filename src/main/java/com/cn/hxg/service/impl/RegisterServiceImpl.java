@@ -43,7 +43,7 @@ public class RegisterServiceImpl implements RegisterService {
         return registerMapper.getStudentRegister(name);
     }
 
-    public List<RegisterData> getRegisterList(String serialNumber){
-        return registerMapper.getRegisterList(serialNumber);
+    public List<RegisterData> getRegisterList(String serialNumber,String doctorName){
+        return registerMapper.getRegisterList(serialNumber,doctorName);
     }
 }

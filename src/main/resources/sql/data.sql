@@ -107,20 +107,22 @@ CREATE TABLE `purchase_history` (
 # 挂号表
 CREATE TABLE `register` (
   `serial_number` int(11) NOT NULL AUTO_INCREMENT COMMENT '流水号',
-  `registration_time` datetime DEFAULT NULL  COMMENT '挂号时间',
+  `registration_time` datetime DEFAULT NULL COMMENT '挂号时间',
   `registered_project` varchar(30) DEFAULT NULL COMMENT '挂号项目',
   `doctor` varchar(30) DEFAULT NULL COMMENT '预约医生',
   `name` varchar(30) DEFAULT NULL COMMENT '学生姓名',
   `cost` decimal(10,2) DEFAULT NULL COMMENT '挂号费',
+  `status` varchar(10) DEFAULT '0' COMMENT '就诊状态',
   PRIMARY KEY (`serial_number`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 
-INSERT INTO `hxg_bishe`.`register` (`serial_number`, `registration_time`, `registered_project`, `doctor`, `name`, `cost`) VALUES ('17', '2018-04-13 15:56:07', '肾内科', '何承文', '小明', '5.00');
-INSERT INTO `hxg_bishe`.`register` (`serial_number`, `registration_time`, `registered_project`, `doctor`, `name`, `cost`) VALUES ('18', '2018-04-13 16:28:36', '感染科', '何承文', '小明', '5.00');
-INSERT INTO `hxg_bishe`.`register` (`serial_number`, `registration_time`, `registered_project`, `doctor`, `name`, `cost`) VALUES ('20', '2018-04-13 17:04:15', '心脏内科', '何承文', '小明', '5.00');
-INSERT INTO `hxg_bishe`.`register` (`serial_number`, `registration_time`, `registered_project`, `doctor`, `name`, `cost`) VALUES ('21', '2018-04-13 17:04:40', '心脏内科', '何承文', '小明', '5.00');
-INSERT INTO `hxg_bishe`.`register` (`serial_number`, `registration_time`, `registered_project`, `doctor`, `name`, `cost`) VALUES ('22', '2018-04-13 17:05:38', '心脏内科', '何承文', '小明', '5.00');
-INSERT INTO `hxg_bishe`.`register` (`serial_number`, `registration_time`, `registered_project`, `doctor`, `name`, `cost`) VALUES ('23', '2018-04-13 17:12:49', '心脏内科', '黄亚琼', '小明', '5.00');
+INSERT INTO `hxg_bishe`.`register` (`serial_number`, `registration_time`, `registered_project`, `doctor`, `name`, `cost`, `status`) VALUES ('17', '2018-04-13 15:56:07', '肾内科', '何承文', '小明', '5.00', '0');
+INSERT INTO `hxg_bishe`.`register` (`serial_number`, `registration_time`, `registered_project`, `doctor`, `name`, `cost`, `status`) VALUES ('18', '2018-04-13 16:28:36', '感染科', '何承文', '小明', '5.00', '0');
+INSERT INTO `hxg_bishe`.`register` (`serial_number`, `registration_time`, `registered_project`, `doctor`, `name`, `cost`, `status`) VALUES ('20', '2018-04-13 17:04:15', '心脏内科', '何承文', '小明', '5.00', '0');
+INSERT INTO `hxg_bishe`.`register` (`serial_number`, `registration_time`, `registered_project`, `doctor`, `name`, `cost`, `status`) VALUES ('21', '2018-04-13 17:04:40', '心脏内科', '何承文', '小明', '5.00', '0');
+INSERT INTO `hxg_bishe`.`register` (`serial_number`, `registration_time`, `registered_project`, `doctor`, `name`, `cost`, `status`) VALUES ('22', '2018-04-13 17:05:38', '心脏内科', '何承文', '小明', '5.00', '0');
+INSERT INTO `hxg_bishe`.`register` (`serial_number`, `registration_time`, `registered_project`, `doctor`, `name`, `cost`, `status`) VALUES ('23', '2018-04-13 17:12:49', '心脏内科', '黄亚琼', '小明', '5.00', '0');
+INSERT INTO `hxg_bishe`.`register` (`serial_number`, `registration_time`, `registered_project`, `doctor`, `name`, `cost`, `status`) VALUES ('24', '2018-04-14 22:14:54', '心脏内科', '黄亚琼', '小明', '5.00', '0');
 
 
 

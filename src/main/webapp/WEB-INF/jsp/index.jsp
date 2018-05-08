@@ -147,6 +147,8 @@
                     // 学生
                 } else if (result.success == 1 && result.data == 1) {
                     window.location.href = "/admin/stuMain";
+                } else if (result.success == 1 && result.data == 2) {
+                    window.location.href = "/register/getRegisterList";
                 } else if (result.success == 0) {
                     layer.msg(result.comment,{time:1000});
                 }

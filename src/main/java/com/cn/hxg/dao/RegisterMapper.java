@@ -25,6 +25,6 @@ public interface RegisterMapper {
 
     List<Register> getStudentRegister(@Param("name")String name);
 
-    List<RegisterData> getRegisterList(@Param("serialNumber")String serialNumber);
+    List<RegisterData> getRegisterList(@Param("serialNumber")String serialNumber,@Param("doctorName")String doctorName);
 
 }

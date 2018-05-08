@@ -18,11 +18,12 @@
         <result column="doctor" property="doctor" jdbcType="VARCHAR" />
         <result column="name" property="name" jdbcType="VARCHAR" />
         <result column="sex" property="sex" jdbcType="VARCHAR" />
+        <result column="status" property="status" jdbcType="VARCHAR" />
         <result column="cost" property="cost" jdbcType="DECIMAL" />
     </resultMap>
 
     <sql id="Base_Column_List">
-    serial_number,registration_time,registered_project,doctor,`name`,cost
+    serial_number,registration_time,registered_project,doctor,`name`,cost,status
     </sql>
 
     <select id="getStudentRegister" parameterType="java.lang.String" resultMap="BaseResultMap">
@@ -31,13 +32,20 @@
         WHERE `name` = #{name,jdbcType=VARCHAR}
     </select>
 
+    <select id="getDoctorRegister" parameterType="java.lang.String" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM register
+        WHERE doctor = #{doctorName,jdbcType=VARCHAR}
+    </select>
+
     <select id="getRegisterList" resultMap="BaseResultMapData">
-        SELECT serial_number,registration_time,registered_project,doctor,r.name,cost,s.sex
+        SELECT serial_number,registration_time,registered_project,doctor,r.name,cost,s.sex,status
         FROM register AS r LEFT JOIN student AS s ON r.name = s.name
         WHERE 1=1
         <if test="serialNumber != null and serialNumber != ''">
             AND r.serial_number = #{serialNumber}
         </if>
+        AND doctor = #{doctorName,jdbcType=VARCHAR}
         ORDER BY r.serial_number DESC
     </select>
 
@@ -57,9 +65,9 @@
         <!--SELECT UPPER(UUID()) AS serialNumber-->
     <!--</selectKey>-->
     insert into register (serial_number,registration_time,registered_project,
-		doctor,name,cost)
+		doctor,name,cost,status)
     values (#{serialNumber,jdbcType=INTEGER},#{registrationTime,jdbcType=TIMESTAMP},#{registeredProject,jdbcType=VARCHAR},
-		#{doctor,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR},#{cost,jdbcType=DECIMAL})
+		#{doctor,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR},#{cost,jdbcType=DECIMAL},#{status,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.cn.hxg.entity.Register">
         <!--<selectKey resultType="java.lang.Integer" order="BEFORE" keyProperty="serialNumber">-->

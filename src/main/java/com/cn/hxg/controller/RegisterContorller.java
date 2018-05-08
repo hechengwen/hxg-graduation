@@ -72,6 +72,7 @@ public class RegisterContorller extends BaseController {
 
         register.setRegistrationTime(new Date());
         register.setName(admin.getRole());//学生姓名
+        register.setStatus("0");
 
         registerService.insert(register);
 
@@ -107,7 +108,9 @@ public class RegisterContorller extends BaseController {
     public ModelAndView getRegisterList(@RequestParam(value = "serialNumber",required = false)String serialNumber){
         ModelAndView modelAndView = new ModelAndView("menzhenjiuzhen");
 
-        List<RegisterData> registerDatas = registerService.getRegisterList(serialNumber);
+        Admin admin = (Admin) getRequest().getSession().getAttribute("userInfo");
+
+        List<RegisterData> registerDatas = registerService.getRegisterList(serialNumber,admin.getRole());
 
         for (RegisterData registerData : registerDatas) {
             String registerTimeStr = simpleDateFormat.format(registerData.getRegistrationTime());

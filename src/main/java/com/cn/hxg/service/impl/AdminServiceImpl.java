@@ -1,5 +1,7 @@
 package com.cn.hxg.service.impl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.cn.hxg.dao.AdminMapper;
@@ -11,6 +13,8 @@ import java.util.List;
 
 @Service
 public class AdminServiceImpl implements AdminService {
+
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private AdminMapper adminMapper;
@@ -45,7 +49,13 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public Admin selectByRole(String role,String userType) {
-        List<Admin> admins = adminMapper.selectByRole(role,userType);
+        List<Admin> admins = null;
+        try {
+            admins = adminMapper.selectByRole(role,userType);
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            return null;
+        }
         if (admins.size() == 0 || admins == null) {
             return null;
         }
