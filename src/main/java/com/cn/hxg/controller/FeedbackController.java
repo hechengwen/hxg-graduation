@@ -42,6 +42,11 @@ public class FeedbackController extends BaseController {
         return new ModelAndView("feedback");
     }
 
+    /**
+     * 增加意见反馈
+     * @param feedback
+     * @return
+     */
     @RequestMapping("insert")
     @LoginRequired
     @ResponseBody
@@ -64,6 +69,11 @@ public class FeedbackController extends BaseController {
         return restData;
     }
 
+    /**
+     * 根据id查询意见反馈列表
+     * @param id
+     * @return
+     */
     @RequestMapping("/getList")
     @LoginRequired
     public ModelAndView getList(@RequestParam(value = "id", required = false) String id) {

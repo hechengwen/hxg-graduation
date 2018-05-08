@@ -38,6 +38,11 @@ public class StudentController extends BaseController{
         return new ModelAndView("student_add");
     }
 
+    /**
+     * 新增学生
+     * @param student
+     * @return
+     */
     @RequestMapping("/insert")
     @ResponseBody
     @LoginRequired
@@ -68,6 +73,11 @@ public class StudentController extends BaseController{
         return rest;
     }
 
+    /**
+     * 学生列表查询
+     * @param req
+     * @return
+     */
     @RequestMapping("/getListStudent")
     @LoginRequired
     public ModelAndView getListStudent(@RequestParam(value = "data",required = false)String req){
@@ -79,6 +89,11 @@ public class StudentController extends BaseController{
         return modelAndView;
     }
 
+    /**
+     * 学生删除
+     * @param sno
+     * @return
+     */
     @RequestMapping("/delete")
     @ResponseBody
     @LoginRequired

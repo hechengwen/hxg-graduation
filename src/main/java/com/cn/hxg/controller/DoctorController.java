@@ -40,6 +40,11 @@ public class DoctorController extends BaseController{
         return new ModelAndView("yishi_add");
     }
 
+    /**
+     * ajax 增加医师
+     * @param doctor
+     * @return
+     */
     @RequestMapping("/insert")
     @ResponseBody
     @LoginRequired
@@ -72,6 +77,11 @@ public class DoctorController extends BaseController{
     }
 
 
+    /**
+     * 按照sno或name（模糊查询）查询医师列表
+     * @param req
+     * @return
+     */
     @RequestMapping("/getListDoctor")
     @LoginRequired
     public ModelAndView getListDoctor(@RequestParam(value = "data",required = false)String req){
@@ -84,6 +94,11 @@ public class DoctorController extends BaseController{
         return modelAndView;
     }
 
+    /**
+     * 删除医师
+     * @param sno
+     * @return
+     */
     @RequestMapping("/delete")
     @ResponseBody
     @LoginRequired
@@ -101,6 +116,11 @@ public class DoctorController extends BaseController{
         return new RestData(1,null,null);
     }
 
+    /**
+     * 根据部门查询医师
+     * @param department
+     * @return
+     */
     @RequestMapping("/getDocByDep")
     @ResponseBody
     @LoginRequired

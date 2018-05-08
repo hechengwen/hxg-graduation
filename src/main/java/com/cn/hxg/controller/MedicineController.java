@@ -41,6 +41,11 @@ public class MedicineController extends BaseController {
         return new ModelAndView("yaopin_add");
     }
 
+    /**
+     * 增加药品
+     * @param medicine
+     * @return
+     */
     @RequestMapping("/insert")
     @LoginRequired
     @ResponseBody
@@ -71,6 +76,11 @@ public class MedicineController extends BaseController {
         return rest;
     }
 
+    /**
+     * 删除药品
+     * @param drugNum
+     * @return
+     */
     @RequestMapping("/delete")
     @ResponseBody
     @LoginRequired
@@ -84,6 +94,11 @@ public class MedicineController extends BaseController {
     }
 
 
+    /**
+     * 药品查询
+     * @param request
+     * @return
+     */
     @RequestMapping("/select")
     @LoginRequired
     public ModelAndView select(HttpServletRequest request) {
