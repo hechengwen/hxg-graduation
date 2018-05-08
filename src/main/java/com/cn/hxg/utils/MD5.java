@@ -4,8 +4,8 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 
 /**
- * Copyright (C), 2017，hxg Tec.
- * Author: hechengwen
+ * 
+ * Author: huxiaogang
  * Version:
  * Date: 2018/4/9 13:19
  * Description:

@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
 
 /**
- * Copyright (C), 2017，hxg Tec.
- * Author: hechengwen
+ * 
+ * Author: huxiaogang
  * Version:
  * Date: 2018/4/9 13:28
  * Description:

@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 
 /**
- * Copyright (C), 2017，hxg Tec.
- * Author: hechengwen
+ * 
+ * Author: huxiaogang
  * Version:
  * Date: 2018/4/10 20:20
  * Description:

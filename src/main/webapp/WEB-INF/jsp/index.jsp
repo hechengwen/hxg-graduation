@@ -50,9 +50,9 @@
                                       <td width="12%" style="font-size: 13pt;">用户类型：</td>
                                       <td width="15%">
                                       	<select name="userType" id="userType">
-                                          <option value="0" id="guanliyuan" > 医生 </option>
-                                          <!-- <option value="0" id="guanliyuan2" > 医生 </option>   --> 
-                                     	  <option value="1" id="yishi">学生 </option>
+                                          <option value="0" id="guanliyuan" > 管理员 </option>
+                                          <option value="1" id="yishi">学生 </option>
+                                          <option value="2" id="guanliyuan2" > 医生 </option>    
                                         </select>
                                       </td>
 									  <td height="57" colspan="2" align="center">&nbsp;&nbsp;</td>

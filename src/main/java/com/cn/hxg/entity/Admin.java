@@ -22,7 +22,7 @@ public class Admin extends BaseObject {
 
     /** 姓名 */
     private String role;
-
+    //用户的身份ID
     private String userType;
 
 

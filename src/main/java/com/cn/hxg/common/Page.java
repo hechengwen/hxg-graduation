@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Copyright (C), 2017，hxg Tec.
+ *
  * Author: huxiaogang
  * Version:
  * Date: 2018/4/10 15:15

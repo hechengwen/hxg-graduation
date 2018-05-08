@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- * Copyright (C), 2017，hxg Tec.
+ * 
  * Author: huxiaogang
  * Version:
  * Date: 2018/4/10 19:52

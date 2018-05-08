@@ -1,8 +1,8 @@
 package com.cn.hxg.rsa;
 
 /**
- * Copyright (C), 2017，jumore Tec.
- * Author: hechengwen
+ * 
+ * Author: huxiaogang
  * Version:
  * Date: 2017/12/11 15:21
  * Description:

@@ -25,8 +25,8 @@ import javax.management.relation.Role;
 import javax.servlet.http.HttpSession;
 
 /**
- * Copyright (C), 2017，hxg Tec.
- * Author: hechengwen
+ * 
+ * Author: huxiaogang
  * Version:
  * Date: 2018/4/8 17:42
  * Description:
@@ -50,7 +50,7 @@ public class AdminController extends BaseController {
     public ModelAndView regIndex(){
         return new ModelAndView("stu_register");
     }
-    
+    //学生注册
     @ResponseBody
     @RequestMapping("register")
     public RestData register(Student student){
@@ -291,7 +291,7 @@ public class AdminController extends BaseController {
         logger.info("{}:登出系统成功",admin.getRole());
         return new ModelAndView("index");
     }
-
+    //管理员主模块
     @RequestMapping(value = "/sysMain")
     @LoginRequired
     public ModelAndView sysMain() {
@@ -303,7 +303,19 @@ public class AdminController extends BaseController {
 
         return model;
     }
+     //医生主模块
+    @RequestMapping(value = "/sysMain2")
+    @LoginRequired
+    public ModelAndView sysMain2() {
+        ModelAndView model = new ModelAndView("doctorMain");
 
+        Admin admin = (Admin) getRequest().getSession().getAttribute("userInfo");
+
+        model.addObject("username", admin.getRole());
+
+        return model;
+    }
+    //学生主模块
     @RequestMapping(value = "/stuMain")
     @LoginRequired
     public ModelAndView stuMain() {

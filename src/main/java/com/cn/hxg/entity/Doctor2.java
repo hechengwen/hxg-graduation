@@ -1,19 +1,17 @@
 package com.cn.hxg.entity;
 
 import com.cn.hxg.base.BaseObject;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-
 @Data
 @EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
 @NoArgsConstructor
-public class Doctor extends BaseObject {
-
-    /** 医生管理员编号 */
+public class Doctor2 extends BaseObject {
+	/** 医生编号 */
     private Integer sno;
 
     /** 姓名 */
@@ -39,5 +37,4 @@ public class Doctor extends BaseObject {
 
     /** 所属科室 */
     private String department;
-
 }
