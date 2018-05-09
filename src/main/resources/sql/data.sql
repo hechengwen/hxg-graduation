@@ -69,11 +69,15 @@ INSERT INTO `hxg_bishe`.`feedback` (`id`, `stu_name`, `desc`, `feed_time`) VALUE
 
 # 就诊记录表
 CREATE TABLE `medical_records` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `stu_name` varchar(30) DEFAULT NULL COMMENT '患者姓名',
   `dco_name` varchar(30) DEFAULT NULL COMMENT '就诊医生',
-  `jzrq` datetime DEFAULT NULL COMMENT '就诊日期',
-  `description` varchar(100) DEFAULT NULL COMMENT '病情描述'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `jzrq` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '就诊日期',
+  `description` varchar(100) DEFAULT NULL COMMENT '病情描述',
+  `serial_number` int(11) DEFAULT NULL COMMENT '外键serial_number',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+
 
 # 药品信息表
 CREATE TABLE `medicine` (
