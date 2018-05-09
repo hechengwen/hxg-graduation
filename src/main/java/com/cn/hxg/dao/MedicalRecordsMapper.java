@@ -5,6 +5,8 @@ import com.cn.hxg.entity.MedicalRecords;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface MedicalRecordsMapper {
 
@@ -19,5 +21,7 @@ public interface MedicalRecordsMapper {
     int updateByPrimaryKeySelective(@Param("record") MedicalRecords record);
 
     int updateByPrimaryKey(@Param("record") MedicalRecords record);
+
+    List<MedicalRecords> getList(@Param("data")String data,@Param("serialNumber")String serialNumber);
 
 }

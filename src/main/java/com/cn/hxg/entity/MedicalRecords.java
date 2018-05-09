@@ -15,6 +15,9 @@ import com.cn.hxg.base.BaseObject;
 @NoArgsConstructor
 public class MedicalRecords extends BaseObject {
 
+    /**  */
+    private Integer id;
+
     /** 患者姓名 */
     private String stuName;
 
@@ -24,8 +27,10 @@ public class MedicalRecords extends BaseObject {
     /** 就诊日期 */
     private Date jzrq;
 
+    private String jzrqStr;
+
     /** 病情描述 */
     private String description;
 
-
+    private Integer serialNumber;
 }

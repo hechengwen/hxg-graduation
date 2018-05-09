@@ -178,7 +178,7 @@ var xitongmenu='<table width=80><tr><td id=xitongfee onMouseOver=overbg(xitongfe
 <tr><td id=readerType onMouseOver=overbg(readerType) onMouseOut=outbg(readerType)><a href=yiliaobuzhu.jsp>医疗补助管理</a></td></tr>-->\
 </table>'
 var menzhenmenu='<table width=80><!--<tr><td id=menzhen onMouseOver=overbg(menzhen) onMouseOut=outbg(menzhen)><a href=guahao_add.jsp>门诊挂号</a></td></tr>-->\
-<tr><td id=menzhenjiuzhen onMouseOver=overbg(menzhenjiuzhen) onMouseOut=outbg(menzhenjiuzhen)><a href="/register/getRegisterList">门诊就诊</a></td><tr>\
+<tr><td id=menzhenjiuzhen onMouseOver=overbg(menzhenjiuzhen) onMouseOut=outbg(menzhenjiuzhen)><a href="/medicalRecords/getList">就诊记录</a></td><tr>\
 <tr><td id=menzhenshoufei onMouseOver=overbg(menzhenshoufei) onMouseOut=outbg(menzhenshoufei)><a href="/register/getRegisterSettle">门诊结算</a></td></tr>\
 </table>'
 var bingrenmenu='<table width=80><tr><td id=bingrendangan onMouseOver=overbg(bingrendangan) onMouseOut=outbg(bingrendangan)><a href="/student/getListStudent">学生信息列表</a></td></tr>\

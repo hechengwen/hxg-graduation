@@ -8,6 +8,7 @@
             <result column="doctor" property="doctor" jdbcType="VARCHAR" />
             <result column="name" property="name" jdbcType="VARCHAR" />
             <result column="cost" property="cost" jdbcType="DECIMAL" />
+            <result column="status" property="status" jdbcType="VARCHAR" />
 
     </resultMap>
 
@@ -129,8 +130,11 @@
         doctor = #{record.doctor,jdbcType=VARCHAR},
     </if>
     <if test="record.name != null">
-        name = #{record.name,jdbcType=VARCHAR}
+        name = #{record.name,jdbcType=VARCHAR},
     </if>
+        <if test="record.status != null">
+            status = #{record.status,jdbcType=VARCHAR}
+        </if>
     </set>
     where serial_number = #{record.serialNumber,jdbcType=INTEGER}
   </update>
@@ -139,7 +143,7 @@
     set registration_time = #{record.registrationTime,jdbcType=TIMESTAMP},
 		registered_project = #{record.registeredProject,jdbcType=VARCHAR},
 		doctor = #{record.doctor,jdbcType=VARCHAR},
-		name = #{record.name,jdbcType=VARCHAR}
+		name = #{record.name,jdbcType=VARCHAR},
 		
     where serial_number = #{record.serialNumber,jdbcType=INTEGER}
   </update>

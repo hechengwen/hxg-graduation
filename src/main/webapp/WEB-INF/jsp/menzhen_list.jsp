@@ -11,19 +11,7 @@
 </head>
 <body onLoad="clockon(bgclock)">
 <%@include file="banner.jsp" %>
-<%@include file="navigation3.jsp" %>
-<script type="text/javascript">
-    function kaiyao(serialNumber) {
-        var url = '/medicalRecords/model?serialNumber='+serialNumber;
-        layer.open({
-            type: 2,
-            title: '病情描述',
-            area: ['500px', '250px'], //宽高
-            content: url
-        });
-    }
-</script>
-
+<%@include file="navigation.jsp" %>
 <table width="778" height="510" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF"
        class="tableBorder_gray">
     <tr>
@@ -36,14 +24,14 @@
                 <tr>
                     <td align="center" valign="top">
 
-                        <form action="/register/getRegisterList" name="form1" method="post">
+                        <form action="/medicalRecords/getList" name="form1" method="post">
                             <table width="98%" height="38" border="0" cellpadding="0" cellspacing="0"
                                    bgcolor="#E3F4F7" class="tableBorder_gray">
                                 <tr>
                                     <td align="center" bgcolor="#F9D16B">
 
                                         &nbsp;<img src="/Images/search.gif" width="45" height="28"></td>
-                                    <td bgcolor="#F9D16B">请输入门诊号：
+                                    <td bgcolor="#F9D16B">请输入序号：
                                         <input name="serialNumber" type="text" id="serialNumber" size="20">
                                         <input name="Submit" type="submit" class="btn_grey" value="查询">
                                     </td>
@@ -65,39 +53,21 @@
                                                        bordercolor="#FFFFFF" bordercolordark="#B7B6B6"
                                                        bordercolorlight="#FFFFFF">
                                                     <tr align="center">
-                                                        <td width="8%" height="25">门诊号</td>
-                                                        <td width="8%">姓名</td>
-                                                        <td width="8%">性别</td>
-                                                        <td width="10%">挂号科室</td>
-                                                        <td width="20%">挂号时间</td>
-                                                        <td width="8%">挂号费</td>
-                                                        <td width="10%">预约医生</td>
-                                                        <td width="14%">门诊状态</td>
+                                                        <td width="8%" height="25">序号</td>
+                                                        <td width="8%">患者姓名</td>
+                                                        <td width="8%">就诊医生</td>
+                                                        <td width="10%">就诊日期</td>
+                                                        <td width="20%">病情描述</td>
                                                     </tr>
 
                                                     <tr align="center" bgcolor="#e3F4F7">
-                                                        <c:forEach items="${registerDatas}" var="registerData">
+                                                        <c:forEach items="${list}" var="registerData">
                                                     <tr align="center">
-                                                        <td>${registerData.serialNumber}</td>
-                                                        <td>${registerData.name}</td>
-                                                        <td>${registerData.sex}</td>
-                                                        <td>${registerData.registeredProject}</td>
-                                                        <td>${registerData.registerTimeStr}</td>
-                                                        <td>${registerData.cost}</td>
-                                                        <td>${registerData.doctor}</td>
-
-                                                        <c:if test="${registerData.status == '0'}">
-                                                            <td><input type="button" id="kaiyao" value="开药"
-                                                                       onclick="kaiyao('${registerData.serialNumber}')" style="background-color:#009f95;color: white;padding: 0px 14px;
-                                                                text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px;">
-                                                            </td>
-                                                        </c:if>
-                                                        <c:if test="${registerData.status == '1'}">
-                                                            <td>就诊完成</td>
-                                                        </c:if>
-
-                                                            <%--<td><input type="button" name="btn" value="删除" onclick="delete_id(${medicine.drugNum})">--%>
-                                                            <%--</td>--%>
+                                                        <td>${registerData.id}</td>
+                                                        <td>${registerData.stuName}</td>
+                                                        <td>${registerData.dcoName}</td>
+                                                        <td>${registerData.jzrqStr}</td>
+                                                        <td>${registerData.description}</td>
                                                     </tr>
                                                     </c:forEach>
                                                     </tr>

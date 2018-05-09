@@ -78,12 +78,12 @@
                                                                 ${doctor.tel}
                                                             </td>
                                                         </tr>
-                                                        <tr>
+                                                        <%--<tr>
                                                             <td align="center">所属科室：</td>
                                                             <td height="39" width="10">
                                                                 ${doctor.department}
                                                             </td>
-                                                        </tr>
+                                                        </tr>--%>
                                                         <tr>
                                                             <td align="center">电子邮箱：</td>
                                                             <td height="39" width="10">
